@@ -27,7 +27,7 @@ const Dashboard = () => {
     
     return (
         <div>
-          {/* akane dashboard details use kora hoy nai */}
+          {/* akane dashboard details use kora  */}
             <h3>this is Dashboard</h3>
             <div className="row">
             <div className="col-md-2 ">
