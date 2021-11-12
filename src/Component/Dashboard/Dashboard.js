@@ -14,7 +14,7 @@ import { Card } from 'react-bootstrap';
 import useAuth from '../Hooks/useAuth';
 const Dashboard = () => {
   const { path, url } = useRouteMatch();
-  const [isAdmin,setIsAdmin]=useState(false)
+  
   const {user}=useAuth()
   useEffect(()=>{
       fetch(`http://localhost:5000/adminConform/${user?.email}`)
@@ -24,7 +24,7 @@ const Dashboard = () => {
           
       })
   },[])
-    console.log(isAdmin);
+    
     return (
         <div>
           {/* akane dashboard details use kora hoy nai */}
