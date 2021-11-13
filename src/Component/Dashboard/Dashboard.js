@@ -14,7 +14,7 @@ import useAuth from '../Hooks/useAuth';
 const Dashboard = () => {
   const { path, url } = useRouteMatch();
   const [admin,setAdmin]=useState(false)
-  const {user}=useAuth()
+  const {user,logOut}=useAuth()
 
     useEffect(()=>{
       fetch(`https://powerful-bayou-53286.herokuapp.com/checkedAdmin/${user?.email}`)
@@ -55,7 +55,7 @@ const Dashboard = () => {
            <Link to="/admin"  className="text-decoration-none text-danger fw-bold">ADMIN</Link></h6>}
 
            <h6 className="my-3"> <i className="fas fa-sign-in-alt me-1 text-danger"></i> 
-           <Button to="/payment" className="text-decoration-none text-danger bg-white border-0 fw-bold">LOGOUT</Button></h6>
+           <Button onClick={logOut} className="text-decoration-none text-danger bg-white border-0 fw-bold">LOGOUT</Button></h6>
 
             </Card>
             
