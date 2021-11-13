@@ -1,6 +1,6 @@
 # Motorola Bike Company
 
-This project site link [www.liveDemo.com](https://github.com/facebook/create-react-app).
+This project site link [www.liveDemo.com](https://friendly-wescoff-18e7cf.netlify.app/).
 
 ## 5 Essential Features in a Great Website. ...
 
