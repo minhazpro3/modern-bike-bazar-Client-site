@@ -1,8 +1,9 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import Swal from 'sweetalert2';
 
 const MakeAdmin = () => {
-    const { register, handleSubmit} = useForm();
+    const { register, handleSubmit, reset} = useForm();
     const onSubmit =(data) =>{
         
         fetch("http://localhost:5000/madeAdmin", {
@@ -14,10 +15,24 @@ const MakeAdmin = () => {
         })
         .then(res=>res.json())
         .then(data=>{
+            warning(true)
+            reset()
            
         })
 
     }
+
+    const warning = (alert) =>{
+        if(alert){
+            Swal.fire({
+                title: 'Admin Added Successfully!!',
+                text: 'Thank You So Much',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+              }) 
+        }
+    }
+
     return (
         <div className="bg-light text-center">
              <h3 className="text-center py-3 ">Create Admin</h3>

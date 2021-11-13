@@ -31,7 +31,9 @@ function App() {
      <Router>
        <NavigationBar></NavigationBar>
        <Switch>
-        
+       <Route exact path="/">
+           <Home></Home>
+         </Route>
          <Route  path="/home">
            <Home></Home>
          </Route>
@@ -72,9 +74,7 @@ function App() {
          <PrivateRoute  path="/manageOrders">
            <ManageOrders></ManageOrders>
          </PrivateRoute>
-         <Route exact path="/">
-           <Home></Home>
-         </Route>
+         
        </Switch>
        <Footer></Footer>
      </Router>

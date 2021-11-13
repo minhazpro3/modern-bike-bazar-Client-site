@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState,useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import {
@@ -13,21 +13,25 @@ import { Card } from 'react-bootstrap';
 import useAuth from '../Hooks/useAuth';
 const Dashboard = () => {
   const { path, url } = useRouteMatch();
-  
+  const [admin,setAdmin]=useState(false)
   const {user}=useAuth()
-  useEffect(()=>{
-      fetch(`http://localhost:5000/adminConform/${user?.email}`)
+
+    useEffect(()=>{
+      fetch(`http://localhost:5000/checkedAdmin/${user?.email}`)
       .then(res=>res.json())
       .then(data=>{
-         console.log(data);
-          
+        if(data[0].role==="admin"){
+          console.log(data);
+        setAdmin(true)
+        }
+        
       })
-  },[])
+    },[user?.email])
     
     return (
         <div>
           {/* akane dashboard details use kora  */}
-            <h3>this is Dashboard</h3>
+            
             <div className="row">
             <div className="col-md-2 ">
               <div className="">
@@ -36,17 +40,19 @@ const Dashboard = () => {
            <h5 className="mb-3">Dashboard</h5>
             
              
-            <h6 className="my-3 "> <i className="fas fa-shopping-cart text-danger"></i> 
+            
+              <h6 className="my-3 "> <i className="fas fa-shopping-cart text-danger me-2"></i> 
              <Link   to={`${url}`} className="text-decoration-none text-danger  fw-bold">MY ORDER</Link></h6>
 
-           <h6 className="my-3 "> <i className="fas fa-comment text-danger"></i>
+           <h6 className="my-3 "> <i className="fas fa-comment text-danger me-2"></i>
             <Link to={`${url}/review`} className="text-decoration-none text-danger fw-bold">REVIEW</Link></h6>
 
-           <h6 className="my-3"> <i className="fab fa-cc-amazon-pay text-danger"></i> 
+           <h6 className="my-3"> <i className="fab fa-cc-amazon-pay text-danger me-2"></i> 
            <Link to={`${url}/payment`} className="text-decoration-none text-danger fw-bold">PAYMENT</Link></h6>
+            
 
-           <h6 className="my-3"> <i className="fas fa-user-tie text-danger"></i> 
-           <Link to="/admin"  className="text-decoration-none text-danger fw-bold">ADMIN</Link></h6>
+           {admin && <h6 className="my-3"> <i className="fas fa-user-tie text-danger me-2"></i> 
+           <Link to="/admin"  className="text-decoration-none text-danger fw-bold">ADMIN</Link></h6>}
 
            {/* <h6 className="my-3"> <i className="fas fa-sign-out-alt text-danger"></i> 
             <Link  className="text-decoration-none text-danger fw-bold">LOGOUT</Link></h6> */}
@@ -67,11 +73,11 @@ const Dashboard = () => {
         <Route exact path={path}>
           <MyOrders></MyOrders>
         </Route>
-        <Route path={`${path}/:review`}>
+        <Route  path={`${path}/:review`}>
           <ReviewInput></ReviewInput>
         </Route>
-        <Route path={`${path}/:payment`}>
-          <Payment></Payment>
+        <Route  path={`${path}/:payment`}>
+          <h2>kamala sundari tumi koi</h2>
         </Route>
       </Switch>
             </div>

@@ -3,6 +3,7 @@ import { Button, Card } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import useAuth from '../Hooks/useAuth';
 const PlaceOrder = () => {
     const {user}=useAuth();
@@ -10,7 +11,7 @@ const PlaceOrder = () => {
     const [singleProducts,setSingleProducts]=useState({})
     
 
-    const { register, handleSubmit  } = useForm();
+    const { register, handleSubmit , reset } = useForm();
     const onSubmit = data => {
         
         const information = {
@@ -40,8 +41,22 @@ const PlaceOrder = () => {
         })
         .then(res=>res.json())
         .then(data=>{
+            warning(true)
+            reset()
         })
     }
+
+    const warning = (alert) =>{
+        if(alert){
+            Swal.fire({
+                title: 'Order Successfully!!',
+                text: 'Thank You So Much',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+              }) 
+        }
+    }
+
 
     useEffect(()=>{
         fetch(`http://localhost:5000/singleProducts/${orderId}`,)

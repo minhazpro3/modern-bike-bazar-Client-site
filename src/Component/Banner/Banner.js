@@ -6,7 +6,7 @@ import './Banner.css'
 const Banner = () => {
     return (
         <Card className=" text-white border-0 ">
-        <Card.Img src="https://www.heromotocorp.com/en-in/uploads/home_banner/20211014095625-banner-7.jpg" />
+        <Card.Img src="https://i.ibb.co/12DJtzf/banner.png" />
         <Card.ImgOverlay className="text-black   img-fluid">
           <Card.Text className="  container  ">
            <div className="row">

@@ -1,8 +1,9 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import Swal from 'sweetalert2';
 
 const AddProducts = () => {
-    const { register, handleSubmit  } = useForm();
+    const { register, handleSubmit,reset  } = useForm();
     const onSubmit = data => {
        fetch('http://localhost:5000/addProducts', {
            method: "POST",
@@ -11,7 +12,21 @@ const AddProducts = () => {
            },
            body:JSON.stringify(data)
        }).then(res=>res.json())
-       .then(data=>{})
+       .then(data=>{
+        warning(true)
+        reset()
+       })
+    }
+
+    const warning = (alert) =>{
+        if(alert){
+            Swal.fire({
+                title: 'Product Added Successfully!!',
+                text: 'Thank You So Much',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+              }) 
+        }
     }
     return (
         <div className="container py-5">

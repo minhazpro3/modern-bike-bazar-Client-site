@@ -5,6 +5,7 @@ import useAuth from '../Hooks/useAuth'
 
 const NavigationBar = () => {
     const {user,logOut}=useAuth()
+    console.log(user);
     return (
         
           <Navbar className="sticky-top" style={{backgroundColor: 'Azure'  }} expand="lg">
@@ -15,6 +16,7 @@ const NavigationBar = () => {
    
    <Navbar.Collapse  id="basic-navbar-nav" >
       <Nav className="me-auto d-flex align-items-center ">
+        {user.displayName? <h6>Hey {user.displayName}</h6>: ""}
       <Link className="mx-2 text-black text-decoration-none" to="/home"><h6>Home</h6></Link>
     {!user?.email ? 
     <Link  className="mx-2 text-black text-decoration-none" to="/login"><h6>login</h6></Link>:

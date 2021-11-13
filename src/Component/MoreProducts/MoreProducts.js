@@ -10,7 +10,7 @@ import Banner from '../Banner/Banner';
             fetch('http://localhost:5000/getProducts')
             .then(res=>res.json())
             .then(data=>{
-                setAllProducts(data.slice(0,6))
+                setAllProducts(data)
                 setLoadding(false)
     
             })

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button} from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import { useHistory, useLocation } from 'react-router';
+import Swal from 'sweetalert2';
 
 import useAuth from '../Hooks/useAuth';
 
@@ -24,13 +25,29 @@ const Register = () => {
            
             history.push(url)
             setIsLoading(true)
+          })
+          .catch((error) => {
+           alert(false)
           }).finally(()=>setIsLoading(false))
       }
       else{
-          alert("Don't match password")
+        alert(false)
       }
       updateName(data.name)
   };
+
+
+  const alert = (values)=>{
+    if(!values){
+      Swal.fire({
+        title: 'Invalid Your Input!',
+        text: 'Please enter right key',
+        icon: 'error',
+        confirmButtonText: 'Ok'
+      }) 
+
+    }
+  }
 
 
   const handleSaveUser = (saveUser) => {

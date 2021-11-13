@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import useAuth from '../Hooks/useAuth';
 import { useHistory, useLocation } from 'react-router';
 import { Button } from 'react-bootstrap';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const {user,setUser, googleSignin,loginEmailPassword,setIsLoading}=useAuth();
@@ -20,10 +21,26 @@ const Login = () => {
         setIsLoading(true)
       })
       .catch((error) => {
+        warning(false)
         const errorMessage = error.message;
       }).finally(()=>setIsLoading(false));
 
     } ;
+
+    const warning = (error)=>{
+      if(!error){
+        Swal.fire({
+          title: 'Invalid Your Input!',
+          text: 'Please enter right key',
+          icon: 'error',
+          confirmButtonText: 'Ok'
+        }) 
+      }
+    }
+   
+    function sweetAlert() {
+    }
+  
 
   
 
