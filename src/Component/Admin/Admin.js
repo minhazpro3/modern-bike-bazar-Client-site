@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import {
     BrowserRouter as Router,
@@ -9,13 +9,14 @@ import {
     useRouteMatch
   } from "react-router-dom";
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import useAuth from '../Hooks/useAuth';
 
 const Admin = () => {
+  const {user,logOut}=useAuth()
 
     const { path, url } = useRouteMatch();
     return (
         <div>
-            <h2>This Admin</h2>
 
             <div className="row">
             <div className="col-md-2">
@@ -33,7 +34,7 @@ const Admin = () => {
 
            <h6 className="my-3"> <Link to={`${url}/makeAdmin`} style={{color: 'hotpink'}} className="text-decoration-none fw-bold">MAKE AN ADMIN</Link></h6>
            
-           <h6 className="my-3"><Link style={{color: 'hotpink'}} className="text-decoration-none fw-bold">LOGOUT</Link></h6>
+           <h6 className="my-3"><Button onClick={logOut} style={{color: 'hotpink'}} className="text-decoration-none bg-white border-0 fw-bold">LOGOUT</Button></h6>
             </Card>
             </div>
             <div className="col-md-10">

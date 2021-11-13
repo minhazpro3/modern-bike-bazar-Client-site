@@ -7,7 +7,7 @@ import ReviewPart from '../ReviewPart/ReviewPart';
 
 const Home = () => {
     return (
-        <div>
+        <div className="overview-hidden">
             <Banner></Banner>
             <HomeProducts></HomeProducts>
             <Offers></Offers>

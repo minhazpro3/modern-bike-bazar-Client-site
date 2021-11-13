@@ -9,7 +9,7 @@ import {
 import MyOrders from '../MyOrders/MyOrders';
 import ReviewInput from '../ReviewInput/ReviewInput';
 import Payment from '../Payment/Payment';
-import { Card } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 import useAuth from '../Hooks/useAuth';
 const Dashboard = () => {
   const { path, url } = useRouteMatch();
@@ -17,7 +17,7 @@ const Dashboard = () => {
   const {user}=useAuth()
 
     useEffect(()=>{
-      fetch(`http://localhost:5000/checkedAdmin/${user?.email}`)
+      fetch(`https://powerful-bayou-53286.herokuapp.com/checkedAdmin/${user?.email}`)
       .then(res=>res.json())
       .then(data=>{
         if(data[0].role==="admin"){
@@ -30,7 +30,7 @@ const Dashboard = () => {
     
     return (
         <div>
-          {/* akane dashboard details use kora  */}
+          
             
             <div className="row">
             <div className="col-md-2 ">
@@ -42,34 +42,29 @@ const Dashboard = () => {
              
             
               <h6 className="my-3 "> <i className="fas fa-shopping-cart text-danger me-2"></i> 
-             <Link   to={`${url}`} className="text-decoration-none text-danger  fw-bold">MY ORDER</Link></h6>
+             <Link   to="/myOrders" className="text-decoration-none text-danger  fw-bold">MY ORDER</Link></h6>
 
            <h6 className="my-3 "> <i className="fas fa-comment text-danger me-2"></i>
-            <Link to={`${url}/review`} className="text-decoration-none text-danger fw-bold">REVIEW</Link></h6>
+            <Link to="/review" className="text-decoration-none text-danger fw-bold">REVIEW</Link></h6>
 
            <h6 className="my-3"> <i className="fab fa-cc-amazon-pay text-danger me-2"></i> 
-           <Link to={`${url}/payment`} className="text-decoration-none text-danger fw-bold">PAYMENT</Link></h6>
+           <Link to="/payment" className="text-decoration-none text-danger fw-bold">PAYMENT</Link></h6>
             
 
            {admin && <h6 className="my-3"> <i className="fas fa-user-tie text-danger me-2"></i> 
            <Link to="/admin"  className="text-decoration-none text-danger fw-bold">ADMIN</Link></h6>}
 
-           {/* <h6 className="my-3"> <i className="fas fa-sign-out-alt text-danger"></i> 
-            <Link  className="text-decoration-none text-danger fw-bold">LOGOUT</Link></h6> */}
+           <h6 className="my-3"> <i className="fas fa-sign-in-alt me-1 text-danger"></i> 
+           <Button to="/payment" className="text-decoration-none text-danger bg-white border-0 fw-bold">LOGOUT</Button></h6>
+
             </Card>
-
-
-            {/* aro 2 */}
-            
-           
-            
-            
             
         </div>
               </div>
             </div>
             <div className="col-md-10">
-            <Switch>
+               {/* nested route 2 tar beshi link kaj kore na , ai jonno comment corlam ,, ui te link thik dekha jai but component change hoy na  */}
+            {/* <Switch>
         <Route exact path={path}>
           <MyOrders></MyOrders>
         </Route>
@@ -79,16 +74,12 @@ const Dashboard = () => {
         <Route  path={`${path}/:payment`}>
           <h2>kamala sundari tumi koi</h2>
         </Route>
-      </Switch>
+      </Switch> */}
+
+              <MyOrders></MyOrders>
             </div>
             </div>
-            {/* <div className="d-flex gap-3 justify-content-center">
-                
-                <Link to="/myService">my services</Link>
-                <Link to="/addService">Add service</Link>
-                <Link to="/manageAllService">Manage All service</Link>
-                
-            </div> */}
+          
         </div>
     );
 };

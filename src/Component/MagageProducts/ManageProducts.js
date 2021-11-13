@@ -5,7 +5,7 @@ const ManageProducts = () => {
     const [refreshData, setRefreshData]=useState(false)
 
     useEffect(()=>{
-        fetch('http://localhost:5000/manageProducts')
+        fetch('https://powerful-bayou-53286.herokuapp.com/manageProducts')
         .then(res=>res.json())
         .then(data=>{
             setProducts(data);
@@ -15,7 +15,7 @@ const ManageProducts = () => {
     const handleDelete = (id) => {
         const process =window.confirm('are you sure? for delete ') 
         if(process){
-            fetch(`http://localhost:5000/manProduct/${id}`, {
+            fetch(`https://powerful-bayou-53286.herokuapp.com/manProduct/${id}`, {
             method: "DELETE", 
             headers: {
                 "content-type": "application/json"
@@ -31,7 +31,7 @@ const ManageProducts = () => {
 
     return (
         <div>
-            <h2>Products Management</h2>
+            <h2 className="text-center">Products Management</h2>
             <div>
             <table className="table table-hover ">
   <thead>

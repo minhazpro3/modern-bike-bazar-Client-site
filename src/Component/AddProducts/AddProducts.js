@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 const AddProducts = () => {
     const { register, handleSubmit,reset  } = useForm();
     const onSubmit = data => {
-       fetch('http://localhost:5000/addProducts', {
+       fetch('https://powerful-bayou-53286.herokuapp.com/addProducts', {
            method: "POST",
            headers: {
                "content-type": "application/json"

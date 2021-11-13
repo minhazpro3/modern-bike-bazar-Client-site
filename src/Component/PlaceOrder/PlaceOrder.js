@@ -32,7 +32,7 @@ const PlaceOrder = () => {
 
         }
         
-        fetch('http://localhost:5000/allOrders', {
+        fetch('https://powerful-bayou-53286.herokuapp.com/allOrders', {
             method: "POST",
             headers: {
                 "content-type":"application/json"
@@ -59,7 +59,7 @@ const PlaceOrder = () => {
 
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/singleProducts/${orderId}`,)
+        fetch(`https://powerful-bayou-53286.herokuapp.com/singleProducts/${orderId}`,)
         .then(res=>res.json())
         .then(data=>{
             setSingleProducts(data)

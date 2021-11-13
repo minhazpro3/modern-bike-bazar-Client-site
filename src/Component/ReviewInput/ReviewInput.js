@@ -10,7 +10,7 @@ const ReviewInput = () => {
     const { register, handleSubmit ,reset } = useForm();
   const onSubmit = data => {
            data.photo=user?.photoURL
-      fetch('http://localhost:5000/allReview', {
+      fetch('https://powerful-bayou-53286.herokuapp.com/allReview', {
           method: "POST",
           headers: {
               "content-type": "application/json"

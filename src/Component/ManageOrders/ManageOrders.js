@@ -5,7 +5,7 @@ const ManageOrders = () => {
     const  [reload, setReload]=useState(false)
 
     useEffect(()=>{
-        fetch('http://localhost:5000/manageOrder',)
+        fetch('https://powerful-bayou-53286.herokuapp.com/manageOrder',)
         .then(res=>res.json())
         .then(data=>{
             setMngOrder(data)
@@ -19,7 +19,7 @@ const ManageOrders = () => {
         }
         const process = window.confirm("Are You Sure For Update Status?")
         if(process){
-            fetch(`http://localhost:5000/updateStatus/${id}`, {
+            fetch(`https://powerful-bayou-53286.herokuapp.com/updateStatus/${id}`, {
                 method: "PUT",
                 headers: {
                     "content-type": "application/json"
@@ -39,7 +39,7 @@ const ManageOrders = () => {
 
         const process = window.confirm('Are you sure? Click "OK"')
         if(process){
-            fetch(`http://localhost:5000/manageOrderDelete/${id}`, {
+            fetch(`https://powerful-bayou-53286.herokuapp.com/manageOrderDelete/${id}`, {
                 method: "DELETE",
                 headers: {
                     "content-type": "application/json"
@@ -55,7 +55,7 @@ const ManageOrders = () => {
 
     return (
         <div>
-            <h4>MANAGE ORDERS</h4>
+            <h4 className="text-center">MANAGE ORDERS</h4>
             <div>
             <table className="table table-hover ">
         <thead>

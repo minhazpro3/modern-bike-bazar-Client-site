@@ -6,7 +6,7 @@ const HomeProducts = () => {
     const [allProducts,setAllProducts]=useState([])
     const [loadding,setLoadding]=useState(true)
     useEffect(()=>{
-        fetch('http://localhost:5000/getProducts')
+        fetch('https://powerful-bayou-53286.herokuapp.com/getProducts')
         .then(res=>res.json())
         .then(data=>{
             setAllProducts(data.slice(0,6))
