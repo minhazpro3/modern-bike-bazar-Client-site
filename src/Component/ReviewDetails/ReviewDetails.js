@@ -20,12 +20,11 @@ const ReviewDetails = ({reviewItem}) => {
             emptySymbol="far fa-star"
             fullSymbol="fas fa-star"
             ></Rating>
+            <br/>
             
+            <small>{description.slice(0,80)}</small>
         </div>
-        <div className="testimonial-name">
-            
-            <small>{description}</small>
-        </div>
+        
     </div>
     );
 };

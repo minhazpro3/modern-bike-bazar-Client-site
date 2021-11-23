@@ -9,7 +9,7 @@ const HomeProducts = () => {
         fetch('https://powerful-bayou-53286.herokuapp.com/getProducts')
         .then(res=>res.json())
         .then(data=>{
-            setAllProducts(data.slice(0,6))
+            setAllProducts(data.slice(0,12))
             setLoadding(false)
         })
     },[])
@@ -22,16 +22,25 @@ const HomeProducts = () => {
        <div className="container">
             <div className='row'>
             
-                <h3 className="text-center mt-3">DHAMAKA OFFER</h3>
+                
+               <div className="d-flex justify-content-between bg-whith px-3 my-2">
+                   <img style={{width: '100px'}} src="https://i.ibb.co/0q7zg3f/Logo-Road-Racerz.png" alt="" />
+
+               <Link to="/moreProducts">More ... </Link>
+               </div>
+                <img  src="https://i.ibb.co/m90sZ2h/honda-2.gif" alt="" />
+
+               
+
             {
                 allProducts.map(pd=> 
-                 <div key={pd._id} className="col-md-4 ">
-                       <Card  style={{  border: '0px' , boxShadow:  '0px 0px 20px 2px' , marginTop: '15px', height: '550px' }} >
-                        <Card.Img  style={{width: '100%', height: '300px'}} variant="top" src={pd.link} />
-                        <Card.Body className="px-5">
+                 <div key={pd._id} className="col-md-3 col-lg-3 col-sm-6  ">
+                       <Card  style={{  border: '0px' , boxShadow:  '0px 0px 20px 2px' , marginTop: '15px',   height: '380px' }} >
+                        <Card.Img  style={{width: '100%', height: '150px'}} variant="top" src={pd.link} />
+                        <Card.Body className="px-2">
                             <Card.Title>{pd.title.slice(0,15)}</Card.Title>
                             <Card.Text>
-                            {pd.description.slice(0,60)}
+                            {pd.description.slice(0,50)}
                             </Card.Text>
                             <Card.Text className='fw-bold m-0' style={{color: 'chocolate'}}>
                            Price: $ {pd.regularPrice}
@@ -45,6 +54,9 @@ const HomeProducts = () => {
                  </div>
                     )
             }
+
+            
+
         </div>
        </div>
     );

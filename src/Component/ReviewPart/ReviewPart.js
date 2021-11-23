@@ -13,15 +13,15 @@ const ReviewPart = () => {
 
     //Owl Carousel Settings
     const options = {
-        loop: true,
+        // loop: true,
         center: true,
         items: 3,
         margin: 0,
         autoplay: true,
-        dots: true,
+        // dots: true,
         autoplayTimeout: 8500,
         smartSpeed: 450,
-        nav: false,
+        // nav: false,
         responsive: {
             0: {
                 items: 1
@@ -55,7 +55,7 @@ const ReviewPart = () => {
                
                 <div className="row ">
                     <div className="col-md-12 ">
-                        <OwlCarousel id="customer-testimonoals" className="owl-carousel owl-theme " {...options}>
+                        <OwlCarousel  id="customer-testimonoals" className="owl-carousel owl-theme " {...options}>
                             {
                               
                               reviewData.map(reviewItem => {

@@ -61,8 +61,10 @@
   .owl-carousel .owl-dots .owl-dot{ 
     display: inline-block;
   }
+
+  
   .owl-carousel .owl-dots .owl-dot span{ 
-    /* background: #eaa400; */
+    background: #eaa400;
     background: #56423D;
     display: inline-block;
     height: 20px;
