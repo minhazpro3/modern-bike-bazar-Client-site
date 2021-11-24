@@ -1,18 +1,15 @@
 import React, {  useState,useEffect } from 'react';
-import { Link } from 'react-router-dom';
-
-import {
-    Switch,
-    Route,
-    useRouteMatch
-  } from "react-router-dom";
-import MyOrders from '../MyOrders/MyOrders';
-import ReviewInput from '../ReviewInput/ReviewInput';
-import Payment from '../Payment/Payment';
-import { Button, Card } from 'react-bootstrap';
+import * as FaIcons from 'react-icons/fa';
+import * as AiIcons from 'react-icons/ai';
+import './Dashboard.css'
+import { Outlet, Link } from 'react-router-dom'
 import useAuth from '../Hooks/useAuth';
 const Dashboard = () => {
-  const { path, url } = useRouteMatch();
+  
+  const [sidebar, setSidebar] = useState(false);
+
+  const showSidebar = () => setSidebar(!sidebar);
+  
   const [admin,setAdmin]=useState(false)
   const {user,logOut}=useAuth()
 
@@ -27,59 +24,61 @@ const Dashboard = () => {
         
       })
     },[user?.email])
-    
+
     return (
         <div>
+          <div>
+
           
-            
-            <div className="row">
-            <div className="col-md-2 ">
-              <div className="">
-              <div className="  text-center ">
-           <Card className="mx-2 bg-light pt-3" style={{height: '550px'}}>
-           <h5 className="mb-3">Dashboard</h5>
-            
-             
-            
-              <h6 className="my-3 "> <i className="fas fa-shopping-cart text-danger me-2"></i> 
-             <Link   to="/myOrders" className="text-decoration-none text-danger  fw-bold">MY ORDER</Link></h6>
-
-           <h6 className="my-3 "> <i className="fas fa-comment text-danger me-2"></i>
-            <Link to="/review" className="text-decoration-none text-danger fw-bold">REVIEW</Link></h6>
-
-           <h6 className="my-3"> <i className="fab fa-cc-amazon-pay text-danger me-2"></i> 
-           <Link to="/payment" className="text-decoration-none text-danger fw-bold">PAYMENT</Link></h6>
-            
-
-           {admin && <h6 className="my-3"> <i className="fas fa-user-tie text-danger me-2"></i> 
-           <Link to="/admin"  className="text-decoration-none text-danger fw-bold">ADMIN</Link></h6>}
-
-           <h6 className="my-3"> <i className="fas fa-sign-in-alt me-1 text-danger"></i> 
-           <Button onClick={logOut} className="text-decoration-none text-danger bg-white border-0 fw-bold">LOGOUT</Button></h6>
-
-            </Card>
-            
+          <div className='navbarDash d-flex justify-content-between'>
+          <Link to='#' className='menu-bars'>
+            <FaIcons.FaBars onClick={showSidebar} />
+          </Link>
+         <div className="d-flex gap-3 me-5">
+         <h6 ><Link className="text-white text-decoration-none" to="/">Home</Link></h6>
+        <h6><Link to='/' className="text-white text-decoration-none" onClick={logOut}>  Logout</Link></h6>
+         
+        
+         </div>
         </div>
-              </div>
-            </div>
-            <div className="col-md-10">
-               {/* nested route 2 tar beshi link kaj kore na , ai jonno comment corlam ,, ui te link thik dekha jai but component change hoy na  */}
-            {/* <Switch>
-        <Route exact path={path}>
-          <MyOrders></MyOrders>
-        </Route>
-        <Route  path={`${path}/:review`}>
-          <ReviewInput></ReviewInput>
-        </Route>
-        <Route  path={`${path}/:payment`}>
-          <h2>kamala sundari tumi koi</h2>
-        </Route>
-      </Switch> */}
-
-              <MyOrders></MyOrders>
-            </div>
-            </div>
+        <nav id="dash-nav" className={sidebar ? 'nav-menu active' : 'nav-menu'}>
           
+          <ul className='nav-menu-items' onClick={showSidebar}>
+            <li className='navbarDash-toggle'>
+              <Link to='#' className='menu-bars'>
+                <AiIcons.AiOutlineClose />
+              </Link>
+            </li>
+           
+               <div>
+                 
+                <br/>
+
+                 <i className="fas fa-shopping-cart text-white me-2 my-4"></i> 
+                  <Link  to={`/dashboard/myOrder`} className="text-decoration-none text-white  fw-bold my-4">My order</Link>
+
+                    <br/>
+                  <i className="fas fa-comment text-white me-2 my-4"></i>
+                  <Link to={`/dashboard/review`} className="text-decoration-none text-white fw-bold">Review</Link>
+                  <br/>
+                <i className="fab fa-cc-amazon-pay text-white me-2 my-4"></i> 
+                <Link to={`/dashboard/payment`} className="text-decoration-none text-white fw-bold my-4">Payment</Link>
+            
+
+             {admin && <div> <i className="fas fa-user-tie text-white me-2 my-4"></i> 
+             <Link  to={`/dashboard/admin`}  className="text-decoration-none text-white fw-bold my-4">Admin</Link></div>}
+
+             <i className="fas fa-sign-in-alt me-1 text-white my-4"></i> 
+             <Link to="/" onClick={logOut} className="text-decoration-none text-white p-0 border-0 fw-bold my-4">Logout</Link>
+                  
+                  </div>
+            
+          </ul>
+        </nav>
+          
+        <Outlet />
+            
+            </div>
         </div>
     );
 };

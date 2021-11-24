@@ -1,24 +1,15 @@
 import React from 'react';
-import { Button, Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    useParams,
-    useRouteMatch
-  } from "react-router-dom";
-import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import useAuth from '../Hooks/useAuth';
 
 const Admin = () => {
   const {user,logOut}=useAuth()
 
-    const { path, url } = useRouteMatch();
+    
     return (
         <div>
 
-            <div className="row">
+            <h2>hello kacha morich</h2>
+            {/* <div className="row">
             <div className="col-md-2">
             <Card className="mx-2 bg-light pt-3 text-center" style={{height: '550px'}}>
            <h5 className="mb-3">Dashboard</h5>
@@ -38,7 +29,7 @@ const Admin = () => {
             </Card>
             </div>
             <div className="col-md-10">
-            <Switch>
+            <Routes>
         <Route exact path={path}>
           choose any one
         </Route>
@@ -46,9 +37,9 @@ const Admin = () => {
          <MakeAdmin></MakeAdmin>
         </Route>
        
-      </Switch>
+      </Routes>
             </div>
-            </div>
+            </div> */}
         </div>
     );
 };

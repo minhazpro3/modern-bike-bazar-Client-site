@@ -2,6 +2,8 @@
 import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Banner from '../Banner/Banner';
+import NavigationBar from '../NavigationBar/NavigationBar';
+
     
     const MoreProducts = () => {
         const [allProducts,setAllProducts]=useState([])
@@ -21,6 +23,7 @@ import Banner from '../Banner/Banner';
         }
         return (
            <div>
+                <NavigationBar></NavigationBar>
               <Banner></Banner>
                 <div className="container">
             <div className='row'>

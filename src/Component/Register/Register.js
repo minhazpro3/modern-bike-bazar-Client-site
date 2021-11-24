@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button} from 'react-bootstrap';
 import { useForm } from "react-hook-form";
-import { useHistory, useLocation } from 'react-router';
+import { useNavigate, useLocation } from 'react-router';
 import Swal from 'sweetalert2';
 
 import useAuth from '../Hooks/useAuth';
@@ -11,9 +11,9 @@ const Register = () => {
     const {user,setUser, googleSignin,createUserEmailPassword,setIsLoading,updateName}=useAuth();
     
     
-    const history = useHistory();
+    const navigate = useNavigate();
   const location = useLocation();
-  const url = location.state?.from || '/home';
+  const url = location.state?.from || '/';
     
     const { register, handleSubmit } = useForm();
   const onSubmit = async data =>{
@@ -23,7 +23,7 @@ const Register = () => {
             setUser(userCredential.user)
             handleSaveUser(userCredential.user)
            
-            history.push(url)
+            navigate(url)
             setIsLoading(true)
           })
           .catch((error) => {
@@ -73,7 +73,7 @@ const Register = () => {
         googleSignin()
         .then((result) => {
             setUser(result.user);
-            history.push(url)
+            navigate(url)
             setIsLoading(true)
         }).catch((error) => {
         

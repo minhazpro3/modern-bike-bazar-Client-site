@@ -1,28 +1,28 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
 import useAuth from '../Hooks/useAuth';
-import { useHistory, useLocation } from 'react-router';
+import { useNavigate, useLocation,Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import Swal from 'sweetalert2';
+import NavigationBar from '../NavigationBar/NavigationBar';
 
 const Login = () => {
     const {user,setUser, googleSignin,loginEmailPassword,setIsLoading}=useAuth();
     const { register, handleSubmit } = useForm();
-    const history = useHistory();
+    const navigate = useNavigate();
   const location = useLocation();
-  const url = location.state?.from || '/home';
+  const url = location.state?.from || '/';
 
   const onSubmit = async data => {
      await loginEmailPassword(data.email,data.password)
      .then((userCredential) => {
         setUser(userCredential.user)
-        history.push(url)
+        navigate(url)
         setIsLoading(true)
       })
       .catch((error) => {
         warning(false)
-        const errorMessage = error.message;
+        
       }).finally(()=>setIsLoading(false));
 
     } ;
@@ -38,8 +38,7 @@ const Login = () => {
       }
     }
    
-    function sweetAlert() {
-    }
+    
   
 
   
@@ -50,7 +49,7 @@ const Login = () => {
         .then((result) => {
             setUser(result.user);
             handleSaveUser(result.user)
-            history.push(url)
+            navigate(url)
             setIsLoading(true)
         }).catch((error) => {
         
@@ -72,7 +71,10 @@ const Login = () => {
         })
      }
     return (
+      <div>
+         <NavigationBar/>
         <div className="container ">
+         
             <h2 className="text-center my-3">LOGIN NOW</h2>
             <div className="row">
             
@@ -99,6 +101,7 @@ const Login = () => {
            </div>
                 </div>
             </div>
+        </div>
         </div>
     );
 };

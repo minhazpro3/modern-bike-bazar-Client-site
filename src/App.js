@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route
 } from "react-router-dom";
 import './App.css';
@@ -29,53 +29,70 @@ function App() {
     <div className="App">
       <AuthProvider>
      <Router>
-       <NavigationBar></NavigationBar>
-       <Switch>
-       <Route exact path="/">
-           <Home></Home>
+       
+       <Routes>
+       <Route  path="/" element={<Home/>}>
+           
          </Route>
-         <Route  path="/home">
-           <Home></Home>
-         </Route>
-         <Route  path="/login">
-           <Login></Login>
+       <Route  path="/home" element={<Home/>}>
+           
          </Route>
          
-         <PrivateRoute  path="/admin">
-           <Admin></Admin>
-         </PrivateRoute>
-         <PrivateRoute  path="/myOrders">
-           <MyOrders></MyOrders>
-         </PrivateRoute>
-         <PrivateRoute  path="/placeOrder/:orderId">
-          <PlaceOrder></PlaceOrder>
-         </PrivateRoute>
-         <Route  path="/moreProducts">
-          <MoreProducts></MoreProducts>
+         <Route  path="/login" element={ <Login/>}>
+          
          </Route>
-         <Route  path="/register">
-           <Register></Register>
+
+         <Route  path="/placeOrder/:orderId" element={<PrivateRoute> <PlaceOrder/></PrivateRoute>
+         }>
          </Route>
-         <PrivateRoute  path="/addProducts">
-           <AddProducts></AddProducts>
-         </PrivateRoute>
-         <PrivateRoute  path="/dashboard">
-           <Dashboard></Dashboard>
-         </PrivateRoute>
-         <PrivateRoute  path="/review">
-           <ReviewInput></ReviewInput>
-         </PrivateRoute>
-         <PrivateRoute  path="/payment">
-           <Payment></Payment>
-         </PrivateRoute>
-         <PrivateRoute  path="/manageProducts">
-           <ManageProducts></ManageProducts>
-         </PrivateRoute>
-         <PrivateRoute  path="/manageOrders">
-           <ManageOrders></ManageOrders>
-         </PrivateRoute>
+        /
+
+         <Route  path="/moreProducts" element={ <PrivateRoute> <MoreProducts/></PrivateRoute>}>
+         </Route>
+
+         <Route  path="/register" element={  <Register/> }>
+         </Route>
+
+         <Route  path="/addProducts" element={  <PrivateRoute><AddProducts/></PrivateRoute>}>
+         </Route>
+
+         <Route  path="/dashboard" element={ <PrivateRoute><Dashboard/></PrivateRoute>}>
+         <Route  path="/dashboard/*" element={ <Payment/>}>
+           
+           </Route>
+           <Route  path={`/dashboard`} element={ <MyOrders/>}>
+          
+           </Route>
+           <Route  path={`/dashboard/myOrder`} element={ <MyOrders/>}>
+          
+           </Route>
+ 
+           <Route path={`/dashboard/review`} element={  <ReviewInput/>}>
+          
+           </Route>
+           <Route path={`/dashboard/payment`} element={<Payment/>}>
+          
+           </Route>
+ 
+           <Route path={`/dashboard/admin`} element={<Admin/>}>
          
-       </Switch>
+           </Route>
+         </Route>
+
+         <Route  path="/review" element={<PrivateRoute> <ReviewInput/></PrivateRoute>}>
+         </Route>
+
+         <Route  path="/payment" element={<PrivateRoute>  <Payment/></PrivateRoute>} >
+         </Route>
+
+         <Route  path="/manageProducts" element={<PrivateRoute><ManageProducts/></PrivateRoute>}>
+           
+         </Route>
+         <Route  path="/manageOrders" element={ <PrivateRoute><ManageOrders/></PrivateRoute>}>
+          
+         </Route>
+         
+       </Routes>
        <Footer></Footer>
      </Router>
      </AuthProvider>
