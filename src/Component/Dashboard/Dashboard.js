@@ -4,6 +4,7 @@ import * as AiIcons from 'react-icons/ai';
 import './Dashboard.css'
 import { Outlet, Link } from 'react-router-dom'
 import useAuth from '../Hooks/useAuth';
+import Admin from '../Admin/Admin';
 const Dashboard = () => {
   
   const [sidebar, setSidebar] = useState(false);
@@ -50,11 +51,9 @@ const Dashboard = () => {
               </Link>
             </li>
            
-               <div>
-                 
-                <br/>
-
-                 <i className="fas fa-shopping-cart text-white me-2 my-4"></i> 
+               <div className="my-5 mx-auto ">
+               {!admin && <div>
+                <i className="fas fa-shopping-cart text-white me-2 my-4"></i> 
                   <Link  to={`/dashboard/myOrder`} className="text-decoration-none text-white  fw-bold my-4">My order</Link>
 
                     <br/>
@@ -63,12 +62,13 @@ const Dashboard = () => {
                   <br/>
                 <i className="fab fa-cc-amazon-pay text-white me-2 my-4"></i> 
                 <Link to={`/dashboard/payment`} className="text-decoration-none text-white fw-bold my-4">Payment</Link>
+                <br/>
+                </div>}
             
-
-             {admin && <div> <i className="fas fa-user-tie text-white me-2 my-4"></i> 
-             <Link  to={`/dashboard/admin`}  className="text-decoration-none text-white fw-bold my-4">Admin</Link></div>}
-
-             <i className="fas fa-sign-in-alt me-1 text-white my-4"></i> 
+             {admin &&  <Admin></Admin>}
+            
+              
+             <i className="fas fa-sign-in-alt me-2 text-white my-4"></i> 
              <Link to="/" onClick={logOut} className="text-decoration-none text-white p-0 border-0 fw-bold my-4">Logout</Link>
                   
                   </div>

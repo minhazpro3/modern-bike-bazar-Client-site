@@ -5,6 +5,7 @@ import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAuth from '../Hooks/useAuth';
+import NavigationBar from '../NavigationBar/NavigationBar';
 const PlaceOrder = () => {
     const {user}=useAuth();
     const {orderId}=useParams();
@@ -67,6 +68,8 @@ const PlaceOrder = () => {
     },[])
 
     return (
+        <div>
+            <NavigationBar/>
         <div className="container">
        <div className="row  ">
            <h3 className="text-center">ORDER CONFIRM</h3>
@@ -112,6 +115,7 @@ const PlaceOrder = () => {
        <Link to="/moreProducts"><Button  style={{backgroundColor: 'hotpink'}} className=" mt-3 fw-bold border-0">MORE COLLECTION  <i className="fas fa-arrow-right px-2 "></i> </Button></Link>
         </div>
        </div>
+        </div>
         </div>
     );
 };

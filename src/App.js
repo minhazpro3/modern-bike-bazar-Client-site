@@ -7,16 +7,17 @@ import {
 import './App.css';
 import AddProducts from './Component/AddProducts/AddProducts';
 import Admin from './Component/Admin/Admin';
+import AllComments from './Component/AllComments/AllComments';
 import AuthProvider from './Component/AuthProvider/AuthProvider';
 import Dashboard from './Component/Dashboard/Dashboard';
 import Footer from './Component/Footer/Footer';
 import Home from "./Component/Home/Home";
 import Login from "./Component/Login/Login";
 import ManageProducts from './Component/MagageProducts/ManageProducts';
+import MakeAdmin from './Component/MakeAdmin/MakeAdmin';
 import ManageOrders from './Component/ManageOrders/ManageOrders';
 import MoreProducts from './Component/MoreProducts/MoreProducts';
 import MyOrders from './Component/MyOrders/MyOrders';
-import NavigationBar from "./Component/NavigationBar/NavigationBar";
 import Payment from './Component/Payment/Payment';
 import PlaceOrder from './Component/PlaceOrder/PlaceOrder';
 import PrivateRoute from './Component/PrivateRoute/PrivateRoute';
@@ -77,6 +78,20 @@ function App() {
            <Route path={`/dashboard/admin`} element={<Admin/>}>
          
            </Route>
+           <Route  path={`/dashboard/addProduct`} element={ <AddProducts/>}>
+          
+          </Route>
+           <Route  path={`/dashboard/manageProducts`} element={ <ManageProducts/>}>
+          </Route>
+
+           <Route  path={`/dashboard/manageOrders`} element={ <ManageOrders/>}>
+          </Route>
+
+           <Route  path={`/dashboard/manageComments`} element={ <AllComments/>}>
+          </Route>
+
+           <Route  path={`/dashboard/makeAdmin`} element={ <MakeAdmin/>}>
+          </Route>
          </Route>
 
          <Route  path="/review" element={<PrivateRoute> <ReviewInput/></PrivateRoute>}>

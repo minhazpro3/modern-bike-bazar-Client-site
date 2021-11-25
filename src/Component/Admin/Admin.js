@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link ,Routes,Route} from 'react-router-dom';
+import AddProducts from '../AddProducts/AddProducts';
 import useAuth from '../Hooks/useAuth';
 
 const Admin = () => {
@@ -8,38 +10,31 @@ const Admin = () => {
     return (
         <div>
 
-            <h2>hello kacha morich</h2>
-            {/* <div className="row">
-            <div className="col-md-2">
-            <Card className="mx-2 bg-light pt-3 text-center" style={{height: '550px'}}>
-           <h5 className="mb-3">Dashboard</h5>
-            <h6 className="my-3"><Link to="/home" style={{color: 'hotpink'}} className="text-decoration-none fw-bold ">HOME</Link></h6>
+         <div>
+              
+                  <i className="far fa-plus-square text-white me-2 my-4"></i>
+                  <Link to={`/dashboard/addProduct`} className="text-decoration-none text-white fw-bold">Add Products</Link>
+                  <br/>
+                  
+                  
+                  <i className="fas fa-share-square text-white me-2 my-4"></i>
+                  <Link to={`/dashboard/manageProducts`} className="text-decoration-none text-white fw-bold">Manage Products</Link>
+                  <br/>
 
-            <h6 className="my-3"><Link to="/dashboard" style={{color: 'hotpink'}} className="text-decoration-none fw-bold">DASHBOARD</Link></h6>
+                  <i className="fas fa-share-square text-white me-2 my-4"></i>
+                  <Link to={`/dashboard/manageOrders`} className="text-decoration-none text-white fw-bold">Manage Orders</Link>
+                  <br/> 
 
-            <h6 className="my-3">  <Link to="/addProducts" style={{color: 'hotpink'}} className="text-decoration-none  fw-bold">ADD PRODUCTS</Link></h6>
+                  <i className="fas fa-comment text-white me-2 my-4"></i>
+                  <Link to={`/dashboard/manageComments`} className="text-decoration-none text-white fw-bold">Manage Comments</Link>
+                  <br/>
 
-           <h6 className="my-3"> <Link to="/manageProducts" style={{color: 'hotpink'}} className="text-decoration-none fw-bold">MANAGE PRODUCTS</Link></h6>
-
-           <h6 className="my-3"> <Link to="/manageOrders" style={{color: 'hotpink'}} className="text-decoration-none fw-bold">MANAGE ORDERS</Link></h6>
-
-           <h6 className="my-3"> <Link to={`${url}/makeAdmin`} style={{color: 'hotpink'}} className="text-decoration-none fw-bold">MAKE AN ADMIN</Link></h6>
-           
-           <h6 className="my-3"><Button onClick={logOut} style={{color: 'hotpink'}} className="text-decoration-none bg-white border-0 fw-bold">LOGOUT</Button></h6>
-            </Card>
-            </div>
-            <div className="col-md-10">
-            <Routes>
-        <Route exact path={path}>
-          choose any one
-        </Route>
-        <Route path={`${path}/:makeAdmin`}>
-         <MakeAdmin></MakeAdmin>
-        </Route>
-       
-      </Routes>
-            </div>
-            </div> */}
+                
+                  <i className="fas fa-user-cog text-white me-2 my-4"></i>
+                  <Link to={`/dashboard/makeAdmin`} className="text-decoration-none text-white fw-bold">Make Admin</Link>
+                  <br/>
+         </div>
+         
         </div>
     );
 };

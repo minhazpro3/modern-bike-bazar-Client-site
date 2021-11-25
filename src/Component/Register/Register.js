@@ -5,6 +5,7 @@ import { useNavigate, useLocation } from 'react-router';
 import Swal from 'sweetalert2';
 
 import useAuth from '../Hooks/useAuth';
+import NavigationBar from '../NavigationBar/NavigationBar';
 
 
 const Register = () => {
@@ -82,6 +83,8 @@ const Register = () => {
 
 
     return (
+      <div>
+        <NavigationBar/>
         <div className="container">
             <div className="row my-2">
             <h2 className="text-center my-3">Register </h2>
@@ -108,6 +111,7 @@ const Register = () => {
               </div>
             </div>
             </div>
+        </div>
         </div>
     );
 };

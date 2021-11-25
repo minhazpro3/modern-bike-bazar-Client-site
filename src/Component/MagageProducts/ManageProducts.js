@@ -30,10 +30,10 @@ const ManageProducts = () => {
     }
 
     return (
-        <div>
-            <h2 className="text-center">Products Management</h2>
+        <div >
+            <h2 className="text-center">Products Management: {products.length}</h2>
             <div>
-            <table className="table table-hover ">
+            <table className="table table-hover">
   <thead>
     <tr>
       <th scope="col">SL</th>
@@ -48,8 +48,8 @@ const ManageProducts = () => {
   {
   products.map((info,index)  => 
    
-    <tbody className="my-1" key={info._id}>
-    <tr>
+    <tbody   key={info._id}>
+    <tr className=" my-5">
       <td>{(index+1)}</td>
       <td>{info?.title}</td>
       <td>$ <del>{info?.regularPrice}</del></td>

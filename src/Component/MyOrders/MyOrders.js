@@ -1,5 +1,6 @@
 import React, {useState, useEffect } from 'react';
-import { Table } from 'react-bootstrap';
+import { Button, Table } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import useAuth from '../Hooks/useAuth';
 
 const MyOrders = () => {
@@ -39,44 +40,36 @@ const MyOrders = () => {
       
     }
 
+    if(!myData.length){
+      return <h3 className="text-center">Don't have an any order </h3>
+    }
+
 
     return (
-        <div>
-            <h3 className="text-center my-2">YOUR ALL ORDERS {myData.length}</h3>
-        <Table striped bordered hover>
-    <thead>
-      <tr>
-        <th>SL</th>
-        <th>Name</th>
-        <th>Title</th>
-        <th>Phone No</th>
-        <th>Price</th>
-        <th>City</th>
-        <th>Date</th>
-        <th>Status</th>
-        <th>Delete</th>
-      </tr>
-    </thead>
+      <div className="container">
+       
+          <div className="d-flex align-items-center justify-content-between bg-info p-2 rounded-3 py-3 my-2" >
+            
+            <h6>Name</h6>
+            <h6>Title</h6>
+            <h6>Date/City</h6>
+            <h6>Status</h6>
+            <h6>Delete</h6>
+          </div>
 
-    {
-      myData?.map((pd,index ) => 
-        <tbody key={pd._id}>
-        <tr>
-          <td>{(index+1)}</td>
-          <td>{pd.name}</td>
-          <td>{pd.title}</td>
-          <td>{pd.phone}</td>
-          <td>${pd.offerPrice}</td>
-          <td>{pd.city}</td>
-          <td>{pd.currentDate}</td>
-          <td>{pd.status}</td>
-          <td><button  onClick={()=>handleDelete(pd._id)} className="btn btn-danger justify-content-end">Delete</button></td>
-        </tr>
-      </tbody> )
-    }
-   
-  </Table>
-  {/* {!isLoading ? <div className=" spin"> <Spinner animation="border" /></div>: ""} */}
+         {
+           myData.map(p=>
+            <div style={{backgroundColor: "Gainsboro"}} className="col-md-12 d-flex align-items-center justify-content-between  p-2 rounded-3 my-2">
+            <h6>{p.name}</h6>
+            <h6>{p.title.slice(0,15)}</h6>
+            <h6>{p.city} <br/>{p.currentDate}</h6>
+            <h6 className={p.status==="Shipped"? "text-success": "text-danger"} >{p.status}</h6>
+            <h6><Button  className="p-1 bg-danger border-0" onClick={()=>handleDelete(p._id)}>Delete</Button></h6>
+          </div>
+            )
+         }
+        
+        
    </div>
     );
 };
