@@ -5,17 +5,31 @@ import Swal from 'sweetalert2';
 const AddProducts = () => {
     const { register, handleSubmit,reset  } = useForm();
     const onSubmit = data => {
-       fetch('https://powerful-bayou-53286.herokuapp.com/addProducts', {
-           method: "POST",
-           headers: {
-               "content-type": "application/json"
-           },
-           body:JSON.stringify(data)
-       }).then(res=>res.json())
-       .then(data=>{
-        warning(true)
+        const formData = new FormData();
+    formData.append('title', data.title)
+    formData.append('regularPrice', data.regularPrice)
+    formData.append('offerPrice', data.offerPrice)
+    formData.append('description', data.description)
+    formData.append('image', data.image[0])
+
+
+      
+
+       
+    const url = 'https://powerful-bayou-53286.herokuapp.com/addBike'
+    fetch(url, {
+      method: "POST",
+      body: formData
+    })
+    .then(res=>res.json())
+    .then(data=>{
+     
+      if(data.acknowledged){
         reset()
-       })
+        warning(true)
+      }
+    
+    })
     }
 
     const warning = (alert) =>{
@@ -48,7 +62,9 @@ const AddProducts = () => {
                 <input className=" w-50 px-2 " type="text" {...register("offerPrice")} placeholder="Offer Price " required />
 
                 <br/>
-                <input className=" w-50 px-2 mt-2" type="text" {...register("link")} placeholder="Img Link " required />
+               
+
+                <input className=" w-50 px-2 mt-2"  {...register("image")} accept="image/*"  type="file" />
                 <br/>
 
                 <input className=" w-50 px-2 my-2 " type="text" {...register("description")} placeholder="description " required />
