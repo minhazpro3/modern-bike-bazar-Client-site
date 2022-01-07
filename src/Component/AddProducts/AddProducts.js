@@ -53,7 +53,7 @@ const AddProducts = () => {
             <div className="bg-light text-center py-5">
                 <form onSubmit={handleSubmit(onSubmit)}>
 
-                <input className=" my-2 w-50 px-2" {...register("title")} defaultValue="" type="text" placeholder="Title" required />
+                <input className=" my-2 w-50 px-2" {...register("title")} type="text" placeholder="Title" required />
 
                 <br/>
                 <input className=" mb-2 w-50 px-2" {...register("regularPrice" )} defaultValue="" type="text" placeholder="Regular Price" required />
@@ -64,7 +64,7 @@ const AddProducts = () => {
                 <br/>
                
 
-                <input className=" w-50 px-2 mt-2"  {...register("image")} accept="image/*"  type="file" />
+                <input className=" w-50 px-2 mt-2"  {...register("image")} required accept="image/*"  type="file" />
                 <br/>
 
                 <input className=" w-50 px-2 my-2 " type="text" {...register("description")} placeholder="description " required />

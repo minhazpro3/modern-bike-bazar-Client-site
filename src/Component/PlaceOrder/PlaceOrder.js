@@ -28,7 +28,7 @@ const PlaceOrder = () => {
                 offerPrice: singleProducts.offerPrice,
                 regularPrice: singleProducts.regularPrice,
                 status: 'Pending',
-                currentDate: new  Date().toISOString().slice(0, 10)
+                currentDate: new  Date().toLocaleString()
 
 
         }
@@ -75,7 +75,8 @@ const PlaceOrder = () => {
            <h3 className="text-center">ORDER CONFIRM</h3>
        <div className="col-md-6">
        <Card  className="p-5" style={{  border: '0px' ,backgroundColor: 'lightGray' }} >
-                        <Card.Img variant="top" style={{width: '400px'}} src={singleProducts?.link} />
+                        <Card.Img variant="top" style={{width: '400px'}} 
+                        src={`data:image/*;base64,${singleProducts.image}`} />
                         <Card.Body className="px-5">
                             <Card.Title>{singleProducts?.title}</Card.Title>
                             <Card.Text>

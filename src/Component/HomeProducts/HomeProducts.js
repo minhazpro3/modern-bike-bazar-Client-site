@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 const HomeProducts = () => {
     const [allProducts,setAllProducts]=useState([])
+    console.log(allProducts)
     const [loadding,setLoadding]=useState(true)
     useEffect(()=>{
         fetch('https://powerful-bayou-53286.herokuapp.com/getProducts')
@@ -36,7 +37,8 @@ const HomeProducts = () => {
                 allProducts.map(pd=> 
                  <div key={pd._id} className="col-md-3 col-lg-3 col-sm-6  ">
                        <Card  style={{  border: '0px' , boxShadow:  '0px 0px 20px 2px' , marginTop: '15px',   height: '380px' }} >
-                        <Card.Img  style={{width: '100%', height: '150px'}} variant="top" src={pd.link} />
+                        <Card.Img  style={{width: '100%', height: '150px'}} variant="top" 
+                        src={`data:image/*;base64,${pd.image}`} />
                         <Card.Body className="px-2">
                             <Card.Title>{pd.title.slice(0,15)}</Card.Title>
                             <Card.Text>

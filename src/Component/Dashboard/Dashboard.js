@@ -19,7 +19,7 @@ const Dashboard = () => {
       .then(res=>res.json())
       .then(data=>{
         if(data[0].role==="admin"){
-          console.log(data);
+          
         setAdmin(true)
         }
         

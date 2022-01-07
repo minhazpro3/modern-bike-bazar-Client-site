@@ -32,7 +32,8 @@ import NavigationBar from '../NavigationBar/NavigationBar';
                 allProducts.map(pd=> 
                  <div key={pd.regularPrice} className="col-md-4 ">
                        <Card  style={{  border: '0px' , boxShadow:  '0px 0px 20px 2px' , marginTop: '15px', height: '550px' }} >
-                        <Card.Img style={{width: '100%', height: '300px'}} variant="top" src={pd.link} />
+                        <Card.Img style={{width: '100%', height: '300px'}} variant="top" 
+                        src={`data:image/*;base64,${pd.image}`} />
                         <Card.Body className="px-5">
                             <Card.Title>{pd.title.slice(0,15)}</Card.Title>
                             <Card.Text>
