@@ -93,7 +93,7 @@ const PlaceOrder = () => {
                         </Card>
         </div>
         <div className="col-md-6 text-center">
-       <div style={{  backgroundColor: 'lightGray' , paddingTop: '30px' ,   height: '400px' }}>
+       <div style={{  backgroundColor: 'lightGray' , paddingTop: '30px' ,  height: '400px'}}>
            <h4 className="mb-4">INPUT YOUR INFORMATION</h4>
        <form onSubmit={handleSubmit(onSubmit)}>
         <input className=" my-2 w-75 px-2" {...register("name")} value={user?.displayName} type="text" placeholder="name" required />
