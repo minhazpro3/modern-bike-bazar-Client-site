@@ -1,7 +1,9 @@
 import React, {useState, useEffect } from 'react';
 import { Button, Table } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import useAuth from '../Hooks/useAuth';
+import ReactLoading from 'react-loading';
+import Swal from 'sweetalert2';
+
 
 const MyOrders = () => {
     const [myData,setMyData]=useState([])
@@ -22,26 +24,41 @@ const MyOrders = () => {
 
 
     const handleDelete = (id)=>{
-      const process = window.confirm('are you sure? for delete ')
-      if(process){
-        fetch(`https://powerful-bayou-53286.herokuapp.com/deleteOrder/${id}`, {
-          method: "DELETE",
-          headers: {
-            "content-type": "application/json"
-          }
-          
-        })
-        .then(res=>res.json())
-        .then(data=>{
-          setRefresh(data);
-        })
-      }
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+          fetch(`https://powerful-bayou-53286.herokuapp.com/deleteOrder/${id}`, {
+            method: "DELETE",
+            headers: {
+              "content-type": "application/json"
+            }
+            
+          })
+          .then(res=>res.json())
+          .then(data=>{
+            setMyData(myData.filter(data=>data._id!==id))    
+          })
+        }
+      })
+     
        
       
     }
 
     if(!myData.length){
-      return <h3 className="text-center">Don't have an any order </h3>
+      return <ReactLoading className="my-5  mx-auto" type="bars" color="blue" height="8rem" width="6rem"  />
     }
 
 

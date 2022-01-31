@@ -4,20 +4,17 @@ import { Link } from 'react-router-dom';
 
 const HomeProducts = () => {
     const [allProducts,setAllProducts]=useState([])
-    console.log(allProducts)
-    const [loadding,setLoadding]=useState(true)
+    
     useEffect(()=>{
         fetch('https://powerful-bayou-53286.herokuapp.com/getProducts')
         .then(res=>res.json())
         .then(data=>{
             setAllProducts(data.slice(0,12))
-            setLoadding(false)
+            
         })
     },[])
 
-    if(loadding){
-        return <h2 className="text-center">loadding...</h2>
-    }
+   
 
     return (
        <div className="container">
