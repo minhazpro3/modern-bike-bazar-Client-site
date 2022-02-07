@@ -45,7 +45,7 @@ const AddProducts = () => {
     return (
         <div className="container py-5">
             <div className="row">
-                <h3 className="text-center pb-3">ADD PRODUCT</h3>
+                <h3 className="text-center text-warning pb-3">ADD <span className="text-success"> PRODUCT</span></h3>
             <div className="col-md-6">
                 <img style={{width: '100%'}} src="https://wpklik.com/wp-content/uploads/2018/12/How-to-Properly-Add-Products-in-WooCommerce.jpg" alt="" />
             </div>
@@ -53,7 +53,7 @@ const AddProducts = () => {
             <div className="bg-light text-center py-5">
                 <form onSubmit={handleSubmit(onSubmit)}>
 
-                <input className=" my-2 w-50 px-2" {...register("title")} type="text" placeholder="Title" required />
+                <input className=" my-2 w-50 px-2 rounded-pb" {...register("title")} type="text" placeholder="Title" required />
 
                 <br/>
                 <input className=" mb-2 w-50 px-2" {...register("regularPrice" )} defaultValue="" type="text" placeholder="Regular Price" required />
@@ -64,7 +64,7 @@ const AddProducts = () => {
                 <br/>
                
 
-                <input className=" w-50 px-2 mt-2"  {...register("image")} required accept="image/*"  type="file" />
+                <input className=" w-50  mt-2"  {...register("image")} required accept="image/*"  type="file" />
                 <br/>
 
                 <input className=" w-50 px-2 my-2 " type="text" {...register("description")} placeholder="description " required />

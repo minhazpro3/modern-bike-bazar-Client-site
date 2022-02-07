@@ -11,7 +11,7 @@ const PlaceOrder = () => {
     const { orderId } = useParams();
     const [singleProducts, setSingleProducts] = useState({})
     const [fresh, setFresh] = useState(false)
-
+    console.log(singleProducts);
 
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
@@ -70,14 +70,21 @@ const PlaceOrder = () => {
             })
     }, [])
 
+
+
+
+
     return (
         <div>
             <NavigationBar />
+
             <div className="container">
-                {fresh && <div className="row  ">
+                <div className="row  ">
                     <h3 className="text-center text-warning">ORDER <span className="text-success">CONFIRM</span></h3>
                     <div className="col-md-6">
-                        <Card className="p-5 rounded-3" style={{ border: '0px', backgroundColor: 'lightGray' }} >
+                        {!singleProducts.image ? <div className="spinner-border text-secondary d-flex justify-content-center mx-auto" role="status">
+                            <span className="sr-only ">Loading...</span>
+                        </div> : <Card className="p-5 rounded-3" style={{ border: '0px', backgroundColor: 'lightGray' }} >
                             <Card.Img variant="top" style={{ width: '100%' }}
                                 src={`data:image/*;base64,${singleProducts.image}`} />
                             <Card.Body className="px-5">
@@ -93,7 +100,7 @@ const PlaceOrder = () => {
                                 </Card.Text>
 
                             </Card.Body>
-                        </Card>
+                        </Card>}
                     </div>
                     <div className="col-md-6 text-center">
                         <div className="rounded-3" style={{ backgroundColor: 'lightGray', paddingTop: '30px', height: '400px' }}>
@@ -118,7 +125,7 @@ const PlaceOrder = () => {
                         </div>
                         <Link to="/moreProducts"><Button style={{ backgroundColor: 'hotpink' }} className=" mt-3 fw-bold border-0">MORE COLLECTION  <i className="fas fa-arrow-right px-2 "></i> </Button></Link>
                     </div>
-                </div>}
+                </div>
             </div>
         </div>
     );

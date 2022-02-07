@@ -1,0 +1,31 @@
+
+.leftPart{
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+.leftPart :hover  {
+    opacity: 95%;
+    
+}
+
+.tata {
+    border:52px red;
+    
+}
+.leftText:hover {
+    color: rgb(181, 129, 230);
+    box-shadow: inset 0px 0px 20px 10px slategray;
+}
+
+.scoping{
+    position: absolute;
+    margin-left: 418px;
+    margin-top: -132px;
+    
+    background-color: tomato;
+    padding: 2px 10px 2px 10px;
+    border-radius: 3px;
+    color: white !important;
+
+}
