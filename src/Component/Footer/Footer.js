@@ -1,10 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import './Footer.css'
 
 const Footer = () => {
     return (
         <div className='bg-light my-5 py-5 text-center' style={{fontFamily: "'Poppins', sans-serif" }}>
            <div className='container'>
+          <div>
+            <div className="d-md-flex gap-3">
+              <input className="w-75 bg-primary border-0 border-white text-white px-3 rounded-3" type="text"  placeholder="Search"  />
+              <h2>Search Dream</h2>
+            </div>
+          </div>
            <div className='row align-items-center'>
             <div className='col-md-3 pe-5 text-start' >
             <img style={{width: '150px'}} src="https://i.ibb.co/sKPDp3L/Motorcycle-Racing-Logos-removebg-preview.png" alt=""/>
