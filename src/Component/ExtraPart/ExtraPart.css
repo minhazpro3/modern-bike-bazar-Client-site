@@ -1,6 +1,7 @@
 
 .leftPart{
     font-family: 'Poppins', sans-serif;
+    position: relative;
     
 }
 
@@ -20,8 +21,8 @@
 
 .scoping{
     position: absolute;
-    margin-left: 418px;
-    margin-top: -132px;
+    right: 5%;
+    top: 5%;
     
     background-color: tomato;
     padding: 2px 10px 2px 10px;

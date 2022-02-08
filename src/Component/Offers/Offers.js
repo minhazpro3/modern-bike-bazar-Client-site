@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 
 const Offers = () => {
     return (
-        <div className="my-5 text-center m-0 p-0 overflow-hidden ">
+        <div className="my-5 text-center m-0 p-0 overflow-hidden " style={{fontFamily: "Poppins, sans-serif"}}>
              <h1 className="my-3 text-center" >Flexibility, Agility &<br/> Freedom to go Anywhere, <br/> Anytime</h1>
             <h4>--------------------------</h4>
            <div className="container my-5">

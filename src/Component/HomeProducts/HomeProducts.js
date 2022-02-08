@@ -1,6 +1,7 @@
 import React, { useEffect ,useState} from 'react';
 import { Button, Card} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import './HomeProjects.css'
 
 const HomeProducts = () => {
     const [allProducts,setAllProducts]=useState([])
@@ -33,11 +34,11 @@ const HomeProducts = () => {
             {
                 allProducts.map(pd=> 
                  <div key={pd._id} className="col-md-3 col-lg-3 col-sm-6  ">
-                       <Card  style={{  border: '0px' , boxShadow:  '0px 0px 20px 2px' , marginTop: '15px',   height: '380px' }} >
-                        <Card.Img  style={{width: '100%', height: '150px'}} variant="top" 
+                       <Card className="zoomDiv"  style={{  border: '0px' , boxShadow:  '0px 0px 20px 2px' , marginTop: '15px', fontFamily: "Poppins, sans-serif" }}  >
+                        <Card.Img className="zoom" style={{width: '100%', height: '150px'}} variant="top" 
                         src={`data:image/*;base64,${pd.image}`} />
                         <Card.Body className="px-2">
-                            <Card.Title>{pd.title.slice(0,15)}</Card.Title>
+                            <Card.Title className="fw-bold">{pd.title.slice(0,15)}</Card.Title>
                             <Card.Text>
                             {pd.description.slice(0,50)}
                             </Card.Text>
@@ -47,7 +48,7 @@ const HomeProducts = () => {
                             <Card.Text className='' >
                             <del>Regular Price: ${pd.offerPrice}</del>
                             </Card.Text>
-                           <Link to={`/placeOrder/${pd._id}`}> <Button className='w-100 mb-3 py-1' variant="warning" size="sm">Add to Cart</Button></Link>
+                           <Link to={`/placeOrder/${pd._id}`}> <Button className='w-100 mb-3 py-1 fw-bold' variant="warning" size="sm">Add to Cart</Button></Link>
                         </Card.Body>
                         </Card>
                  </div>
