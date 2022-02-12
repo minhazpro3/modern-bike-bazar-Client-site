@@ -35,7 +35,7 @@ const HomeProducts = () => {
                 allProducts.map(pd=> 
                  <div key={pd._id} className="col-md-3 col-lg-3 col-sm-6  ">
                        <Card className="zoomDiv"  style={{  border: '0px' , boxShadow:  '0px 0px 20px 2px' , marginTop: '15px', fontFamily: "Poppins, sans-serif" }}  >
-                        <Card.Img className="zoom" style={{width: '100%', height: '150px'}} variant="top" 
+                        <Card.Img className="zoom mb-3" style={{width: '100%', height: '150px'}} variant="top" 
                         src={`data:image/*;base64,${pd.image}`} />
                         <Card.Body className="px-2">
                             <Card.Title className="fw-bold">{pd.title.slice(0,15)}</Card.Title>

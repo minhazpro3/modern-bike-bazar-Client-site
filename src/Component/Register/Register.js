@@ -87,17 +87,17 @@ const Register = () => {
         <NavigationBar/>
         <div className="container">
             <div className="row my-2">
-            <h2 className="text-center my-3">Register </h2>
+            <h2 className="text-center my-3 text-success font fw-bold" style={{fontFamily: "Poppins, sans-serif"}}>Register </h2>
             <div className="col-md-6">
               <div>
-                <img className="w-100" src="https://wpeverest.com/blog/wp-content/uploads/2019/11/Best-Free-WordPress-Registration-Plugins.jpg" alt="" />
+                <img className="w-100" src="https://media.istockphoto.com/vectors/online-registration-and-sign-up-concept-people-signing-up-or-login-to-vector-id1219250750" alt="" />
               </div>
             </div>
             <div className="col-md-6 bg-light text-center py-5">
               <div >
-              
+             
             <form onSubmit={handleSubmit(onSubmit)}>
-            <input className=" w-50" {...register("name")} placeholder="name" type="text" required />
+            <input placeholder="name" className=" w-50" {...register("name")}  type="text" required />
             <br/>
             <input className="my-2 w-50" {...register("email")}  placeholder="email" type="email" required />
             <br/>

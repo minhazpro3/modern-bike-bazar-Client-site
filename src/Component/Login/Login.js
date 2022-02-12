@@ -75,12 +75,12 @@ const Login = () => {
          <NavigationBar/>
         <div className="container ">
          
-            <h2 className="text-center my-3">LOGIN NOW</h2>
+            <h2 className="text-center my-3 text-success font fw-bold" style={{fontFamily: "Poppins, sans-serif"}}>Login Now</h2>
             <div className="row">
             
                 <div className="col-md-6">
                 <div className="text-center">
-                        <img src="https://images.clipartlogo.com/files/istock/previews/3061/30616146-blue-metallic-login-button.jpg" alt="" />
+                        <img  src="https://images.clipartlogo.com/files/istock/previews/3061/30616146-blue-metallic-login-button.jpg" alt="" />
                 </div>
                 </div>
                 <div className="col-md-6">
@@ -88,11 +88,11 @@ const Login = () => {
                     
             <div className="ms-5">
             <form onSubmit={handleSubmit(onSubmit)}>
-            <input className="my-2 w-75 ps-2" {...register("email")} required  placeholder="email" type="email" />
+            <input className="my-2 w-75 ps-2 border-3 border-info rounded-3 focus-none" {...register("email")} type="email" required  placeholder="email"  />
             <br/>
-            <input className=" w-75 ps-2" {...register("password")} required placeholder="password" type="password"  />
+            <input className=" w-75 ps-2 border-3 border-info rounded-3" {...register("password")} required placeholder="password" type="password"  />
             <br/>
-            <input className="my-2 w-75 bg-danger border-0 text-white" type="submit" />
+            <input className="my-2 w-75 bg-danger  text-white border-0 border-info rounded-3" type="submit" />
             </form>
             <Button onClick={handleGoolgeLogin}>Google Sign in</Button>
             <br/>

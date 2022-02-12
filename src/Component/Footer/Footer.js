@@ -7,7 +7,7 @@ const Footer = () => {
            <div className='container'>
           <div>
             <div className="d-md-flex gap-3">
-              <input className="w-75 bg-primary border-0 border-white text-white px-3 rounded-3" type="text"  placeholder="Search"  />
+              <input className="w-75 search-input bg-primary border-0 border-white text-white px-3 rounded-3" type="text"  placeholder="Search"  />
               <h2>Search Dream</h2>
             </div>
           </div>
