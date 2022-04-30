@@ -1,4 +1,4 @@
-# Motorola Bike Company
+# Motorola Bike E-comarce
 
 This project site link [www.liveDemo.com](https://friendly-wescoff-18e7cf.netlify.app/).
 
