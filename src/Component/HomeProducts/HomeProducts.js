@@ -11,6 +11,7 @@ const HomeProducts = () => {
         .then(res=>res.json())
         .then(data=>{
             setAllProducts(data.slice(0,12))
+            console.log(data)
             
         })
     },[])

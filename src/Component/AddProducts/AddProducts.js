@@ -1,35 +1,61 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 
 const AddProducts = () => {
     const { register, handleSubmit,reset  } = useForm();
-    const onSubmit = data => {
-        const formData = new FormData();
-    formData.append('title', data.title)
-    formData.append('regularPrice', data.regularPrice)
-    formData.append('offerPrice', data.offerPrice)
-    formData.append('description', data.description)
-    formData.append('image', data.image[0])
-
-
+    const [imgUrl,setImgUrl]=useState("")
+    const onSubmit =  data => {
       
+            const formData1 = {
+                title: data.title,
+                regularPrice: data.regularPrice,
+                offerPrice: data.offerPrice,
+                description: data.description,
+                image: imgUrl
+            }
+    
 
-       
-    const url = 'https://powerful-bayou-53286.herokuapp.com/addBike'
-    fetch(url, {
-      method: "POST",
-      body: formData
+    const url = 'http://localhost:5000/addBike'
+     fetch( url, {
+      method:  "POST",
+      headers:{
+          "content-type":"application/json"
+      },
+      body:JSON.stringify(formData1)
     })
     .then(res=>res.json())
     .then(data=>{
-     
+     console.log(data)
       if(data.acknowledged){
         reset()
         warning(true)
       }
     
     })
+    }
+
+
+  
+
+    const setImage = e =>{
+        e.preventDefault()
+
+        const formData = new FormData()
+        formData.set("key", "a8859d2230e61a23e842e4132855a72d")
+        formData.append('image', e.target.files[0])
+
+        axios.post("https://api.imgbb.com/1/upload", formData )
+    .then(res=>{
+        setImgUrl(res.data.data.url)
+       console.log(res.data.data.url)
+       
+    })
+    .catch(error => {
+        console.log(error.message);
+      });
+        
     }
 
     const warning = (alert) =>{
@@ -64,7 +90,7 @@ const AddProducts = () => {
                 <br/>
                
 
-                <input className=" w-50  mt-2"  {...register("image")} required accept="image/*"  type="file" />
+                <input className=" w-50  mt-2"  {...register("image")} onChange={setImage} required accept="image/*"  type="file" />
                 <br/>
 
                 <input className=" w-50 px-2 my-2 " type="text" {...register("description")} placeholder="description " required />
