@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import Rating from "react-rating";
 import { Link } from "react-router-dom";
+import useAuth from "../Hooks/useAuth";
 import "./HomeProjects.css";
 
 const HomeProducts = () => {
   const [allProducts, setAllProducts] = useState([]);
+  const {reload}=useAuth()
 
   useEffect(() => {
     fetch("https://powerful-bayou-53286.herokuapp.com/getProducts")
@@ -14,7 +16,7 @@ const HomeProducts = () => {
         setAllProducts(data.slice(0, 12));
         console.log(data);
       });
-  }, []);
+  }, [reload]);
 
   return (
     <div className="container">
@@ -36,7 +38,7 @@ const HomeProducts = () => {
               className="zoomDiv"
               style={{
                 border: "0px",
-                boxShadow: "0px 0px 20px 2px",
+                boxShadow: "0px 0px 3px 2px",
                 marginTop: "15px",
                 fontFamily: "Poppins, sans-serif",
               }}

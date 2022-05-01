@@ -2,8 +2,10 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
+import useAuth from '../Hooks/useAuth';
 
 const AddProducts = () => {
+    const {setReload}=useAuth()
     const { register, handleSubmit,reset  } = useForm();
     const [imgUrl,setImgUrl]=useState("")
     const onSubmit =  data => {
@@ -30,6 +32,7 @@ const AddProducts = () => {
      console.log(data)
       if(data.acknowledged){
         reset()
+        setReload(true)
         warning(true)
       }
     

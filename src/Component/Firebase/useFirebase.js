@@ -7,6 +7,7 @@ import initializeFirebaseApp from "../Hooks/firebase.init";
     initializeFirebaseApp()
     const useFirebase = () =>{
         const auth = getAuth();
+        const [reload,setReload]=useState(false)
         const [user,setUser]=useState({});
         const [isLoading,setIsLoading]=useState(true)
     const googleProvider = new GoogleAuthProvider();
@@ -73,7 +74,9 @@ import initializeFirebaseApp from "../Hooks/firebase.init";
         loginEmailPassword,
         isLoading,
         setIsLoading,
-        updateName
+        updateName,
+        reload,
+        setReload
 
     }
 }

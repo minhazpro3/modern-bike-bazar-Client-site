@@ -3,12 +3,14 @@ import { Button, Card } from 'react-bootstrap';
 import Rating from 'react-rating';
 import { Link } from 'react-router-dom';
 import Banner from '../Banner/Banner';
+import useAuth from '../Hooks/useAuth';
 import NavigationBar from '../NavigationBar/NavigationBar';
 
 
     
     const MoreProducts = () => {
         const [allProducts,setAllProducts]=useState([])
+        const {reload}=useAuth()
         const [loadding,setLoadding]=useState(true)
         useEffect(()=>{
             fetch('https://powerful-bayou-53286.herokuapp.com/getProducts')
@@ -18,7 +20,7 @@ import NavigationBar from '../NavigationBar/NavigationBar';
                 setLoadding(false)
     
             })
-        },[])
+        },[reload])
 
         if(loadding){
             return <h2 className="text-center">loadding...</h2>
@@ -37,7 +39,6 @@ import NavigationBar from '../NavigationBar/NavigationBar';
               className="zoomDiv"
               style={{
                 border: "0px",
-                boxShadow: "0px 0px 20px 2px",
                 marginTop: "15px",
                 fontFamily: "Poppins, sans-serif",
               }}
