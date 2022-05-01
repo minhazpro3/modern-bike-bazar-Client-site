@@ -37,17 +37,17 @@ const HomeProducts = () => {
                  <div key={pd._id} className="col-md-3 col-lg-3 col-sm-6  ">
                        <Card className="zoomDiv"  style={{  border: '0px' , boxShadow:  '0px 0px 20px 2px' , marginTop: '15px', fontFamily: "Poppins, sans-serif" }}  >
                         <Card.Img className="zoom mb-3" style={{width: '100%', height: '150px'}} variant="top" 
-                        src={`data:image/*;base64,${pd.image}`} />
+                        src={pd.image} />
                         <Card.Body className="px-2">
                             <Card.Title className="fw-bold">{pd.title.slice(0,15)}</Card.Title>
                             <Card.Text>
                             {pd.description.slice(0,50)}
                             </Card.Text>
                             <Card.Text className='fw-bold m-0' style={{color: 'chocolate'}}>
-                           Price: $ {pd.regularPrice}
+                           Price: $ {pd.offerPrice}
                             </Card.Text>
                             <Card.Text className='' >
-                            <del>Regular Price: ${pd.offerPrice}</del>
+                            <del>Regular Price: ${pd.regularPrice}</del>
                             </Card.Text>
                            <Link to={`/placeOrder/${pd._id}`}> <Button className='w-100 mb-3 py-1 fw-bold' variant="warning" size="sm">Add to Cart</Button></Link>
                         </Card.Body>
