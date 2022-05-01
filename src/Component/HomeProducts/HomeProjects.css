@@ -5,9 +5,9 @@
     max-width: 100%;
     height:auto;
     
-    -moz-transition: all 0.5s;
-    -webkit-transition: all 0.5s;
-    transition: all 0.5s;
+    -moz-transition: all 1s;
+    -webkit-transition: all 1s;
+    transition: all 1s;
     
     
   }
@@ -30,5 +30,14 @@
 .zoomDiv:hover {
       background-color: rgb(67, 112, 138);
       color: white;
+      transition: all 1s;
+      
 
+  }
+.price{
+    color: chocolate;
+}
+
+.zoomDiv:hover .price {
+      color: white;
   }

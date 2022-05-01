@@ -86,7 +86,7 @@ const PlaceOrder = () => {
                             <span className="sr-only ">Loading...</span>
                         </div> : <Card className="p-5 rounded-3" style={{ border: '0px', backgroundColor: 'lightGray' }} >
                             <Card.Img variant="top" style={{ width: '100%' }}
-                                src={`data:image/*;base64,${singleProducts.image}`} />
+                                src={singleProducts.image} />
                             <Card.Body className="px-5">
                                 <Card.Title>{singleProducts?.title}</Card.Title>
                                 <Card.Text>
