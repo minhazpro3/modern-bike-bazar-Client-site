@@ -1,8 +1,10 @@
     import React, { useEffect, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
+import Rating from 'react-rating';
 import { Link } from 'react-router-dom';
 import Banner from '../Banner/Banner';
 import NavigationBar from '../NavigationBar/NavigationBar';
+
 
     
     const MoreProducts = () => {
@@ -30,24 +32,54 @@ import NavigationBar from '../NavigationBar/NavigationBar';
             <h3 className="text-center mt-3">OUR COLLECTIONS</h3>
             {
                 allProducts.map(pd=> 
-                 <div key={pd.regularPrice} className="col-md-4 ">
-                       <Card  style={{  border: '0px' , boxShadow:  '0px 0px 20px 2px' , marginTop: '15px', height: '550px' }} >
-                        <Card.Img style={{width: '100%', height: '300px'}} variant="top" 
-                        src={pd.image}/>
-                        <Card.Body className="px-5">
-                            <Card.Title>{pd.title.slice(0,15)}</Card.Title>
-                            <Card.Text>
-                            {pd.description.slice(0,70)}
-                            </Card.Text>
-                            <Card.Text className='fw-bold m-0' style={{color: 'chocolate'}}>
-                           Price: $ {pd.regularPrice}
-                            </Card.Text>
-                            <Card.Text className='' >
-                            <del>Regular Price: ${pd.offerPrice}</del>
-                            </Card.Text>
-                           <Link to={`/placeOrder/${pd._id}`}> <Button className='w-100 mb-3 py-1' variant="warning" size="sm">Add to Cart</Button></Link>
-                        </Card.Body>
-                        </Card>
+                 <div key={pd.regularPrice} className="col-md-3 ">
+                      <Card
+              className="zoomDiv"
+              style={{
+                border: "0px",
+                boxShadow: "0px 0px 20px 2px",
+                marginTop: "15px",
+                fontFamily: "Poppins, sans-serif",
+              }}
+            >
+              <Card.Img
+                className="zoom mb-3"
+                style={{ width: "100%", height: "150px" }}
+                variant="top"
+                src={pd.image}
+              />
+              <Card.Body className="px-2">
+                <Card.Title className="fw-bold">
+                  {pd.title.slice(0, 15)}
+                </Card.Title>
+                <Card.Text>{pd.description.slice(0, 50)}</Card.Text>
+                <Rating
+                  className="text-warning"
+                  initialRating="5"
+                  readonly
+                  emptySymbol="far fa-star"
+                  fullSymbol="fas fa-star"
+                ></Rating>
+                <Card.Text
+                  className="fw-bold m-0 price"
+                >
+                  Price: $ {pd.offerPrice}
+                </Card.Text>
+                <Card.Text className="">
+                  Regular Price: $<del>{pd.regularPrice}</del>
+                </Card.Text>
+                <Link to={`/placeOrder/${pd._id}`}>
+                  {" "}
+                  <Button
+                    className="w-100 mb-3 py-1 fw-bold"
+                    variant="warning"
+                    size="sm"
+                  >
+                    Add to Cart
+                  </Button>
+                </Link>
+              </Card.Body>
+            </Card>
                  </div>
                     )
             }

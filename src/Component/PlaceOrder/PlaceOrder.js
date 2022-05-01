@@ -103,20 +103,20 @@ const PlaceOrder = () => {
                         </Card>}
                     </div>
                     <div className="col-md-6 text-center">
-                        <div className="rounded-3" style={{ backgroundColor: 'lightGray', paddingTop: '30px', height: '400px' }}>
+                        <div className="rounded-3" style={{ backgroundColor: 'lightGray', paddingTop: '30px', height: '480px' }}>
                             <h4 className="mb-4 opacity-50 text-primary">INPUT YOUR INFORMATION</h4>
                             <form onSubmit={handleSubmit(onSubmit)}>
-                                <input className=" my-2 w-75 px-2 border-info rounded-pill" {...register("name")} value={user?.displayName} type="text" placeholder="name" required />
+                                <input className=" my-2 w-75 px-2 rounded-3 border-0 py-2 " {...register("name")} value={user?.displayName} type="text" placeholder="name" required />
                                 <br />
-                                <input className=" mb-2 w-75 px-2 border-info rounded-pill" {...register("email")} value={user?.email} type="email" placeholder="email" required />
+                                <input className=" mb-2 w-75 px-2 rounded-3 border-0 py-2 " {...register("email")} value={user?.email} type="email" placeholder="email" required />
                                 <br />
-                                <input className=" w-75 px-2  border-info rounded-pill" type="text" {...register("phone")} placeholder="Phone " required />
+                                <input className=" w-75 px-2  rounded-3 border-0 py-2 " type="text" {...register("phone")} placeholder="Phone " required />
                                 <br />
-                                <input className=" w-75 px-2 mt-2 border-info rounded-pill" type="text" {...register("post")} placeholder="post code " required />
+                                <input className=" w-75 px-2 mt-2 rounded-3 border-0 py-2 " type="text" {...register("post")} placeholder="post code " required />
                                 <br />
-                                <input className=" w-75 px-2 my-2  border-info rounded-pill" type="text" {...register("city")} placeholder="city " required />
+                                <input className=" w-75 px-2 my-2 rounded-3  border-0 py-2 " type="text" {...register("city")} placeholder="city " required />
                                 <br />
-                                <input className=" w-75 px-2  border-info rounded-pill" type="text" {...register("country")} placeholder="country " required />
+                                <input className=" w-75 px-2 rounded-3 border-0 py-2  " type="text" {...register("country")} placeholder="country " required />
                                 <br />
                                 <br />
                                 <input className="bg-danger border-0 w-75 px-2 py-1 text-white rounded my-2" type="submit" value="CONFIRM ORDER" />

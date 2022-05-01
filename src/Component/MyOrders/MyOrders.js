@@ -7,7 +7,6 @@ import Swal from 'sweetalert2';
 
 const MyOrders = () => {
     const [myData,setMyData]=useState([])
-    const [refresh,setRefresh]=useState(false)
     const {user}=useAuth();
     
     
@@ -20,7 +19,7 @@ const MyOrders = () => {
             setMyData(data)
             
         })
-    },[refresh])
+    },[])
 
 
     const handleDelete = (id)=>{
