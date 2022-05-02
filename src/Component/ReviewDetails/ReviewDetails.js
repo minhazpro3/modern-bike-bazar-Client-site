@@ -1,10 +1,8 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import Rating from 'react-rating';
-import useAuth from '../Hooks/useAuth';
 
 const ReviewDetails = ({reviewItem}) => {
-    const {user}=useAuth()
     
     const {name,description,photo,ratting}=reviewItem;
     

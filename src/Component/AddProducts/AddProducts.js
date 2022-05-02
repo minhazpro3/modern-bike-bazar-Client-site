@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 import useAuth from '../Hooks/useAuth';
@@ -29,7 +29,7 @@ const AddProducts = () => {
     })
     .then(res=>res.json())
     .then(data=>{
-     console.log(data)
+      
       if(data.acknowledged){
         reset()
         setReload(true)
@@ -52,7 +52,7 @@ const AddProducts = () => {
         axios.post("https://api.imgbb.com/1/upload", formData )
     .then(res=>{
         setImgUrl(res.data.data.url)
-       console.log(res.data.data.url)
+      
        
     })
     .catch(error => {

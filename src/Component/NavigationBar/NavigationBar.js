@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import {  Container, Nav, Navbar } from 'react-bootstrap';
 import { Link  } from 'react-router-dom';
 import useAuth from '../Hooks/useAuth'
 
@@ -18,7 +18,7 @@ const NavigationBar = () => {
       <Nav  className=" d-flex  align-items-center text-white">
        <div className="d-flex ">
        {user.displayName? <h6>Hey {user.displayName}</h6>: ""}
-      <Link className="mx-2 text-black text-decoration-none text-white" to="/home"><h6>Home</h6></Link>
+      <Link className="mx-2 text-black text-decoration-none text-white" to="/"><h6>Home</h6></Link>
         
        </div>
        <div className="d-flex">

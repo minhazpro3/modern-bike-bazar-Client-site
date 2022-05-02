@@ -20,10 +20,10 @@ const Footer = () => {
                 <button className='border-0 fw-bold ' style={{color: 'hotpink'}}> Read more <i className="fas fa-arrow-right px-2 "></i> </button>
             </div>
             <div className="d-flex gap-3 mt-2" style={{color: 'hotpink'}}>
-             <a target="_blank" href="https://www.facebook.com"><h3><i className="fab fa-facebook"></i></h3></a>
-                <a target="_blank" href="https://www.twitter.com"><h3><i className="fab fa-twitter"></i></h3></a>
-                <a target="_blank" href="https://www.linkedin.com"><h3><i className="fab fa-linkedin-in"></i></h3></a>
-                <a target="_blank" href="https://www.instagram.com"><h3><i className="fab fa-instagram"></i></h3></a>
+             <a target="_blank" href="https://www.facebook.com" rel="noreferrer"><h3><i className="fab fa-facebook"></i></h3></a>
+                <a target="_blank" href="https://www.twitter.com" rel="noreferrer"><h3><i className="fab fa-twitter"></i></h3></a>
+                <a target="_blank" href="https://www.linkedin.com" rel="noreferrer"><h3><i className="fab fa-linkedin-in"></i></h3></a>
+                <a target="_blank" href="https://www.instagram.com" rel="noreferrer"><h3><i className="fab fa-instagram"></i></h3></a>
             </div>
             </div>
             <div className='col-md-3 fw-bold '>

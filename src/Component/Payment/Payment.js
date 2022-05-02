@@ -1,13 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import useAuth from "../Hooks/useAuth";
+import PaymentCart from "./PaymentCart";
 
 const Payment = () => {
-    return (
-        <div className="text-center">
-            <h2>Payment System Coming Soon.....</h2>
+  const [payData, setPayData] = useState([]);
+  const { user } = useAuth();
 
-            <img style={{width: "500px"}} src="https://png.pngtree.com/png-clipart/20200928/ourmid/pngtree-coming-soon-sign-text-png-image_2354820.jpg" alt="" />
-        </div>
-    );
+  useEffect(() => {
+    fetch(`https://powerful-bayou-53286.herokuapp.com/myOrder/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setPayData(data);
+      });
+  }, [user?.email]);
+  return (
+    <div>
+      <table className="table">
+        <thead>
+          <tr>
+            <th scope="col">SL</th>
+            <th scope="col">Product view</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Payment Status</th>
+            <th scope="col">Pay</th>
+          </tr>
+        </thead>
+        {
+            payData.map((data,index)=> <PaymentCart key={data._id} {...data} index={index} />)
+        }
+      </table>
+    </div>
+  );
 };
 
 export default Payment;

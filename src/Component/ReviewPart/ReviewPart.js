@@ -4,10 +4,8 @@ import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import ReviewDetails from '../ReviewDetails/ReviewDetails';
 import './ReviewPart.css'
-import useAuth from '../Hooks/useAuth';
 
 const ReviewPart = () => {
-    const {user}=useAuth();
     const [reviewData, setReviewData]=useState([])
     const [Ref,setRef]=useState(false)
 
@@ -60,7 +58,7 @@ const ReviewPart = () => {
                               
                               reviewData.map(reviewItem => {
                                         return (
-                                            <ReviewDetails key={reviewItem.id} reviewItem={reviewItem}  />
+                                            <ReviewDetails key={reviewItem._id} reviewItem={reviewItem}  />
 
                                         )
                                     })

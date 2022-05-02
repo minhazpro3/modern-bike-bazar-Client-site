@@ -14,14 +14,14 @@ const HomeProducts = () => {
       .then((res) => res.json())
       .then((data) => {
         setAllProducts(data.slice(0, 12));
-        console.log(data);
+       
       });
   }, [reload]);
 
   return (
     <div className="container">
       <div className="row">
-        <div className="d-flex justify-content-between bg-whith px-3 my-2">
+        <div className="d-flex justify-content-between  px-3 my-2">
           <img
             style={{ width: "100px" }}
             src="https://i.ibb.co/0q7zg3f/Logo-Road-Racerz.png"

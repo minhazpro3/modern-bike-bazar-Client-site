@@ -1,10 +1,7 @@
 import React from 'react';
-import { Link ,Routes,Route} from 'react-router-dom';
-import AddProducts from '../AddProducts/AddProducts';
-import useAuth from '../Hooks/useAuth';
+import { Link  } from 'react-router-dom';
 
 const Admin = () => {
-  const {user,logOut}=useAuth()
 
     
     return (

@@ -10,8 +10,8 @@ const PlaceOrder = () => {
     const { user } = useAuth();
     const { orderId } = useParams();
     const [singleProducts, setSingleProducts] = useState({})
-    const [fresh, setFresh] = useState(false)
-    console.log(singleProducts);
+    
+  
 
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
@@ -29,6 +29,8 @@ const PlaceOrder = () => {
             offerPrice: singleProducts.offerPrice,
             regularPrice: singleProducts.regularPrice,
             status: 'Pending',
+            payment: 'Unpaid',
+            img: singleProducts.image,
             currentDate: new Date().toLocaleString()
 
 
@@ -45,6 +47,9 @@ const PlaceOrder = () => {
             .then(data => {
                 warning(true)
                 reset()
+                if(data.acknowledge){
+                    
+                }
             })
     }
 
@@ -65,10 +70,10 @@ const PlaceOrder = () => {
             .then(res => res.json())
             .then(data => {
                 setSingleProducts(data)
-                setFresh(true)
+                 
 
             })
-    }, [])
+    }, [orderId])
 
 
 
@@ -119,7 +124,7 @@ const PlaceOrder = () => {
                                 <input className=" w-75 px-2 rounded-3 border-0 py-2  " type="text" {...register("country")} placeholder="country " required />
                                 <br />
                                 <br />
-                                <input className="bg-danger border-0 w-75 px-2 py-1 text-white rounded my-2" type="submit" value="CONFIRM ORDER" />
+                                <input className="bg-danger border-0 w-75 px-2 py-1 text-white rounded my-2" type="submit" value="CONFIRM ORDER" /> 
                             </form>
 
                         </div>

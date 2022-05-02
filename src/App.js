@@ -18,6 +18,7 @@ import MakeAdmin from './Component/MakeAdmin/MakeAdmin';
 import ManageOrders from './Component/ManageOrders/ManageOrders';
 import MoreProducts from './Component/MoreProducts/MoreProducts';
 import MyOrders from './Component/MyOrders/MyOrders';
+import CheckoutForm from './Component/Payment/CheckoutForm';
 import Payment from './Component/Payment/Payment';
 import PlaceOrder from './Component/PlaceOrder/PlaceOrder';
 import PrivateRoute from './Component/PrivateRoute/PrivateRoute';
@@ -91,6 +92,9 @@ function App() {
           </Route>
 
            <Route  path={`/dashboard/makeAdmin`} element={ <MakeAdmin/>}>
+          </Route>
+
+           <Route  path={`/dashboard/pay/:findId`} element={ <CheckoutForm/>}>
           </Route>
          </Route>
 

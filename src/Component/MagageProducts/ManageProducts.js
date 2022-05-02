@@ -3,7 +3,7 @@ import Swal from 'sweetalert2';
 
     const ManageProducts = () => {
     const [products, setProducts] = useState([]);
-   const [fresh, setFresh] = useState(true)
+  //  const [fresh, setFresh] = useState(true)
 
   useEffect(() => {
 
@@ -11,7 +11,6 @@ import Swal from 'sweetalert2';
       .then(res => res.json())
       .then(data => {
         setProducts(data);
-        setFresh(false)
       })
   }, [])
 
@@ -66,13 +65,8 @@ import Swal from 'sweetalert2';
           </thead>
 
 
-          {fresh ?
-            <div className="d-flex justify-content-center ">
-
-              <div className="spinner-grow text-secondary " role="status">
-                <span className="visually-hidden">Loading...</span>
-              </div>
-            </div> :
+          {
+            
             products.map((info, index) =>
 
               <tbody key={info._id}>

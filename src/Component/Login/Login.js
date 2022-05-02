@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 import NavigationBar from '../NavigationBar/NavigationBar';
 
 const Login = () => {
-    const {user,setUser, googleSignin,loginEmailPassword,setIsLoading}=useAuth();
+    const {setUser, googleSignin,loginEmailPassword,setIsLoading}=useAuth();
     const { register, handleSubmit } = useForm();
     const navigate = useNavigate();
   const location = useLocation();

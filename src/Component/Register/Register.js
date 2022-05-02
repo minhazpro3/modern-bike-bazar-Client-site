@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button} from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import { useNavigate, useLocation } from 'react-router';
@@ -9,7 +9,7 @@ import NavigationBar from '../NavigationBar/NavigationBar';
 
 
 const Register = () => {
-    const {user,setUser, googleSignin,createUserEmailPassword,setIsLoading,updateName}=useAuth();
+    const {setUser, googleSignin,createUserEmailPassword,setIsLoading,updateName}=useAuth();
     
     
     const navigate = useNavigate();

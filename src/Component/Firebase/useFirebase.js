@@ -43,7 +43,7 @@ import initializeFirebaseApp from "../Hooks/firebase.init";
             setIsLoading(false)
           })
           return ()=> unsubscribe();
-    },[user?.displayName])
+    },[auth])
 
     // update Name
     const updateName = (name) => {
