@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
+
 const PaymentCart = ({img,title,index,offerPrice,_id,payment}) => {
     return (
         <tbody>
