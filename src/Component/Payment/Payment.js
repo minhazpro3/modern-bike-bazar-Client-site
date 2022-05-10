@@ -5,6 +5,7 @@ import PaymentCart from "./PaymentCart";
 
 const Payment = () => {
   const [payData, setPayData] = useState([]);
+  console.log(payData);
   const { user } = useAuth();
 
   useEffect(() => {

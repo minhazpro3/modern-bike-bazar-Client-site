@@ -1,18 +1,40 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import StripeCheckout from 'react-stripe-checkout';
+import Swal from 'sweetalert2';
 
 const publishable_Key= 'pk_test_51Jw7VaH3ev5JLZVRvA8lgx8YaHqTlusMziZgMjollIE1gPBWx3kP33OB2DK3Fnwpgr2YetIlBzzcMNbzw5Nxbm6T00ilgAiC9a'
 const Pay = () => {
     const [product,setProduct]=useState({})
+    console.log(product);
     const [type,setType]=useState(false)
-    console.log(product.offerPrice);
     const {findId}=useParams()
     const onToken = (token)=>{
+      console.log(token);
       if(token.created){
         setType(true)
-        console.log("something print");
+        status(product._id)
+        Swal.fire(
+          'Good job!',
+          'Your payment successfully!',
+          'success'
+        )
       }
+    }
+
+    const status = (id)=>{
+      
+      fetch(`http://localhost:5000/paymentStatus/${id}`,{
+        method:"PUT",
+        headers:{
+          "content-type":"application/json"
+        }
+        
+      })
+      .then(res=>res.json())
+      .then(data=>{
+        console.log(data);
+      })
     }
 
 
