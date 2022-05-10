@@ -10,3 +10,10 @@ This project site link [www.liveDemo.com](https://friendly-wescoff-18e7cf.netlif
 - A strong and visible call to action. ...
 - Ensuring easy navigation.
 
+
+## Payment gateway implement
+-   install stripe and stripe-react
+-   set publishable key
+-   Elements added 
+-   Checkout form
+-   Create payment method

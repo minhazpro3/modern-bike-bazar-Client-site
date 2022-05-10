@@ -43,12 +43,18 @@ const HomeProducts = () => {
                 fontFamily: "Poppins, sans-serif",
               }}
             >
-              <Card.Img
+              {!pd.image?
+             <div className="d-flex  justify-content-center my-5 py-3">
+                <div className="spinner-border " role="status">
+             <span className="visually-hidden mx-5 px-5">Loading...</span>
+            </div>
+             </div>:
+            <Card.Img
                 className="zoom mb-3"
                 style={{ width: "100%", height: "150px" }}
                 variant="top"
                 src={pd.image}
-              />
+              />}
               <Card.Body className="px-2">
                 <Card.Title className="fw-bold">
                   {pd.title.slice(0, 15)}
