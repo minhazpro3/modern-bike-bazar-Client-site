@@ -53,7 +53,7 @@ const Register = () => {
 
   const handleSaveUser = (saveUser) => {
     
-     fetch('https://powerful-bayou-53286.herokuapp.com/saveUsers', {
+     fetch('http://localhost:5000/saveUsers', {
        method: "POST",
        headers: {
          "content-type":"application/json"

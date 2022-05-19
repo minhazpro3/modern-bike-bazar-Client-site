@@ -13,7 +13,7 @@ import NavigationBar from '../NavigationBar/NavigationBar';
         const {reload}=useAuth()
         const [loadding,setLoadding]=useState(true)
         useEffect(()=>{
-            fetch('https://powerful-bayou-53286.herokuapp.com/getProducts')
+            fetch('http://localhost:5000/getProducts')
             .then(res=>res.json())
             .then(data=>{
                 setAllProducts(data)

@@ -10,7 +10,7 @@ const MyOrders = () => {
     
   console.log(myData);
     useEffect(()=>{
-        fetch(`https://powerful-bayou-53286.herokuapp.com/myOrder/${user?.email}`)
+        fetch(`http://localhost:5000/myOrder/${user?.email}`)
         .then(res=>res.json())
         .then(data=>{
             setMyData(data)
@@ -36,7 +36,7 @@ const MyOrders = () => {
             'Your file has been deleted.',
             'success'
           )
-          fetch(`https://powerful-bayou-53286.herokuapp.com/deleteOrder/${id}`, {
+          fetch(`http://localhost:5000/deleteOrder/${id}`, {
             method: "DELETE",
             headers: {
               "content-type": "application/json"

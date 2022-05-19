@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 
   useEffect(() => {
 
-    fetch('https://powerful-bayou-53286.herokuapp.com/manageProducts')
+    fetch('http://localhost:5000/manageProducts')
       .then(res => res.json())
       .then(data => {
         setProducts(data);
@@ -30,7 +30,7 @@ import Swal from 'sweetalert2';
           'Your file has been deleted.',
           'success'
         )
-        fetch(`https://powerful-bayou-53286.herokuapp.com/manProduct/${id}`, {
+        fetch(`http://localhost:5000/manProduct/${id}`, {
           method: "DELETE",
           headers: {
             "content-type": "application/json"

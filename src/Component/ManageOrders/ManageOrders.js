@@ -5,7 +5,7 @@ const ManageOrders = () => {
     const  [reload, setReload]=useState(false)
 
     useEffect(()=>{
-        fetch('https://powerful-bayou-53286.herokuapp.com/manageOrder',)
+        fetch('http://localhost:5000/manageOrder',)
         .then(res=>res.json())
         .then(data=>{
             setMngOrder(data)
@@ -19,7 +19,7 @@ const ManageOrders = () => {
         }
         const process = window.confirm("Are You Sure For Update Status?")
         if(process){
-            fetch(`https://powerful-bayou-53286.herokuapp.com/updateStatus/${id}`, {
+            fetch(`http://localhost:5000/updateStatus/${id}`, {
                 method: "PUT",
                 headers: {
                     "content-type": "application/json"
@@ -39,7 +39,7 @@ const ManageOrders = () => {
 
         const process = window.confirm('Are you sure? Click "OK"')
         if(process){
-            fetch(`https://powerful-bayou-53286.herokuapp.com/manageOrderDelete/${id}`, {
+            fetch(`http://localhost:5000/manageOrderDelete/${id}`, {
                 method: "DELETE",
                 headers: {
                     "content-type": "application/json"

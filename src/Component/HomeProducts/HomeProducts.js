@@ -7,16 +7,16 @@ import "./HomeProjects.css";
 
 const HomeProducts = () => {
   const [allProducts, setAllProducts] = useState([]);
-  const {reload}=useAuth()
+  
 
   useEffect(() => {
-    fetch("https://powerful-bayou-53286.herokuapp.com/getProducts")
+    fetch("http://localhost:5000/getProducts")
       .then((res) => res.json())
       .then((data) => {
         setAllProducts(data.slice(0, 12));
        
       });
-  }, [reload]);
+  }, []);
 
   return (
     <div className="container">

@@ -2,9 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import StripeCheckout from 'react-stripe-checkout';
 import Swal from 'sweetalert2';
+import { useNavigate } from "react-router-dom";
+
 
 const publishable_Key= 'pk_test_51Jw7VaH3ev5JLZVRvA8lgx8YaHqTlusMziZgMjollIE1gPBWx3kP33OB2DK3Fnwpgr2YetIlBzzcMNbzw5Nxbm6T00ilgAiC9a'
 const Pay = () => {
+  let navigate = useNavigate();
     const [product,setProduct]=useState({})
     console.log(product);
     const [type,setType]=useState(false)
@@ -33,7 +36,9 @@ const Pay = () => {
       })
       .then(res=>res.json())
       .then(data=>{
-        console.log(data);
+        if(data){
+          navigate("/dashboard/payment", { replace: true });
+        }
       })
     }
 

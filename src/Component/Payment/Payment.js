@@ -9,7 +9,7 @@ const Payment = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    fetch(`https://powerful-bayou-53286.herokuapp.com/myOrder/${user?.email}`)
+    fetch(`http://localhost:5000/myOrder/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setPayData(data);

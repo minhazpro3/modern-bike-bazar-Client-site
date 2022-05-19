@@ -15,7 +15,7 @@ const Dashboard = () => {
   const {user,logOut}=useAuth()
 
     useEffect(()=>{
-      fetch(`https://powerful-bayou-53286.herokuapp.com/checkedAdmin/${user?.email}`)
+      fetch(`http://localhost:5000/checkedAdmin/${user?.email}`)
       .then(res=>res.json())
       .then(data=>{
         if(data[0].role==="admin"){
