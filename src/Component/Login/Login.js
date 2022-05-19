@@ -84,23 +84,23 @@ const Login = () => {
               <div className="ms-5">
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <input
-                    className="my-2 w-75 ps-2 border-3 border-info rounded-3 focus-none"
+                    className="my-2 w-75 px-2 rounded-2 shadow-lg border-0  rounded"
                     {...register("email")}
                     type="email"
                     required
-                    placeholder="email"
+                    placeholder="Email"
                   />
                   <br />
                   <input
-                    className=" w-75 ps-2 border-3 border-info rounded-3"
+                    className="my-2 w-75 px-2 rounded-2 shadow-lg border-0  rounded"
                     {...register("password")}
                     required
-                    placeholder="password"
+                    placeholder="Password"
                     type="password"
                   />
                   <br />
                   <input
-                    className="my-2 w-75 bg-danger  text-white border-0 border-info rounded-3"
+                    className="my-2 w-75 bg-danger py-1 text-white border-0 border-info rounded-3"
                     type="submit"
                   />
                 </form>
