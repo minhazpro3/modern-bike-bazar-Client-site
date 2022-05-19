@@ -31,7 +31,7 @@ const PlaceOrder = () => {
       currentDate: new Date().toLocaleString(),
     };
 
-    fetch("http://localhost:5000/allOrders", {
+    fetch("https://rocky-river-82616.herokuapp.com/allOrders", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -59,7 +59,7 @@ const PlaceOrder = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/singleProducts/${orderId}`)
+    fetch(`https://rocky-river-82616.herokuapp.com/singleProducts/${orderId}`)
       .then((res) => res.json())
       .then((data) => {
         setSingleProducts(data);

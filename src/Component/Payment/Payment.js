@@ -8,7 +8,7 @@ const Payment = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myOrder/${user?.email}`)
+    fetch(`https://rocky-river-82616.herokuapp.com/myOrder/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setPayData(data);

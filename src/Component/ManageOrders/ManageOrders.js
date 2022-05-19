@@ -5,7 +5,7 @@ const ManageOrders = () => {
   const [reload, setReload] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/manageOrder")
+    fetch("https://rocky-river-82616.herokuapp.com/manageOrder")
       .then((res) => res.json())
       .then((data) => {
         setMngOrder(data);
@@ -18,7 +18,7 @@ const ManageOrders = () => {
     };
     const process = window.confirm("Are You Sure For Update Status?");
     if (process) {
-      fetch(`http://localhost:5000/updateStatus/${id}`, {
+      fetch(`https://rocky-river-82616.herokuapp.com/updateStatus/${id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
@@ -35,7 +35,7 @@ const ManageOrders = () => {
   const handleDelete = (id) => {
     const process = window.confirm('Are you sure? Click "OK"');
     if (process) {
-      fetch(`http://localhost:5000/manageOrderDelete/${id}`, {
+      fetch(`https://rocky-river-82616.herokuapp.com/manageOrderDelete/${id}`, {
         method: "DELETE",
         headers: {
           "content-type": "application/json",

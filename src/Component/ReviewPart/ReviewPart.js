@@ -34,7 +34,7 @@ const ReviewPart = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/reviewGet")
+    fetch("https://rocky-river-82616.herokuapp.com/reviewGet")
       .then((res) => res.json())
       .then((data) => {
         setReviewData(data);

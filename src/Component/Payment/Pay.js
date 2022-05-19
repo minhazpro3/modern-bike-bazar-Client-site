@@ -22,7 +22,7 @@ const Pay = () => {
   };
 
   const status = (id) => {
-    fetch(`http://localhost:5000/paymentStatus/${id}`, {
+    fetch(`https://rocky-river-82616.herokuapp.com/paymentStatus/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -37,7 +37,7 @@ const Pay = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/getPay/${findId}`)
+    fetch(`https://rocky-river-82616.herokuapp.com/getPay/${findId}`)
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);

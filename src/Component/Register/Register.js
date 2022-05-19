@@ -53,7 +53,7 @@ const Register = () => {
   };
 
   const handleSaveUser = (saveUser) => {
-    fetch("http://localhost:5000/saveUsers", {
+    fetch("https://rocky-river-82616.herokuapp.com/saveUsers", {
       method: "POST",
       headers: {
         "content-type": "application/json",

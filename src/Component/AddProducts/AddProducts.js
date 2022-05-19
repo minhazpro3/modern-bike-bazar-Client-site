@@ -17,7 +17,7 @@ const AddProducts = () => {
       image: imgUrl,
     };
 
-    const url = `http://localhost:5000/addBike`;
+    const url = `https://rocky-river-82616.herokuapp.com/addBike`;
     fetch(url, {
       method: "POST",
       headers: {

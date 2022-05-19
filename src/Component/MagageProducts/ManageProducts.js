@@ -6,7 +6,7 @@ const ManageProducts = () => {
   //  const [fresh, setFresh] = useState(true)
 
   useEffect(() => {
-    fetch("http://localhost:5000/manageProducts")
+    fetch("https://rocky-river-82616.herokuapp.com/manageProducts")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -25,7 +25,7 @@ const ManageProducts = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
-        fetch(`http://localhost:5000/manProduct/${id}`, {
+        fetch(`https://rocky-river-82616.herokuapp.com/manProduct/${id}`, {
           method: "DELETE",
           headers: {
             "content-type": "application/json",

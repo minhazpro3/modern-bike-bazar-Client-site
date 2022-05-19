@@ -11,7 +11,7 @@ const MoreProducts = () => {
   const { reload } = useAuth();
   const [loadding, setLoadding] = useState(true);
   useEffect(() => {
-    fetch("http://localhost:5000/getProducts")
+    fetch("https://rocky-river-82616.herokuapp.com/getProducts")
       .then((res) => res.json())
       .then((data) => {
         setAllProducts(data);
