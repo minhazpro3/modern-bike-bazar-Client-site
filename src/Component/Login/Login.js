@@ -1,109 +1,121 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import useAuth from '../Hooks/useAuth';
-import { useNavigate, useLocation,Link } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
-import Swal from 'sweetalert2';
-import NavigationBar from '../NavigationBar/NavigationBar';
+import React from "react";
+import { useForm } from "react-hook-form";
+import useAuth from "../Hooks/useAuth";
+import { useNavigate, useLocation, Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
+import Swal from "sweetalert2";
+import NavigationBar from "../NavigationBar/NavigationBar";
 
 const Login = () => {
-    const {setUser, googleSignin,loginEmailPassword,setIsLoading}=useAuth();
-    const { register, handleSubmit } = useForm();
-    const navigate = useNavigate();
+  const { setUser, googleSignin, loginEmailPassword, setIsLoading } = useAuth();
+  const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
   const location = useLocation();
-  const url = location.state?.from || '/';
+  const url = location.state?.from || "/";
 
-  const onSubmit = async data => {
-     await loginEmailPassword(data.email,data.password)
-     .then((userCredential) => {
-        setUser(userCredential.user)
-        navigate(url)
-        setIsLoading(true)
+  const onSubmit = async (data) => {
+    await loginEmailPassword(data.email, data.password)
+      .then((userCredential) => {
+        setUser(userCredential.user);
+        navigate(url);
+        setIsLoading(true);
       })
       .catch((error) => {
-        warning(false)
-        
-      }).finally(()=>setIsLoading(false));
+        warning(false);
+      })
+      .finally(() => setIsLoading(false));
+  };
 
-    } ;
-
-    const warning = (error)=>{
-      if(!error){
-        Swal.fire({
-          title: 'Invalid Your Input!',
-          text: 'Please enter right key',
-          icon: 'error',
-          confirmButtonText: 'Ok'
-        }) 
-      }
+  const warning = (error) => {
+    if (!error) {
+      Swal.fire({
+        title: "Invalid Your Input!",
+        text: "Please enter right key",
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
     }
-   
-    
-  
+  };
 
-  
+  //   google login
+  const handleGoolgeLogin = () => {
+    googleSignin()
+      .then((result) => {
+        setUser(result.user);
+        handleSaveUser(result.user);
+        navigate(url);
+        setIsLoading(true);
+      })
+      .catch((error) => {})
+      .finally(() => setIsLoading(false));
+  };
 
-//   google login
-    const handleGoolgeLogin = ()=>{
-        googleSignin()
-        .then((result) => {
-            setUser(result.user);
-            handleSaveUser(result.user)
-            navigate(url)
-            setIsLoading(true)
-        }).catch((error) => {
-        
-        }).finally(()=>setIsLoading(false))
-    }
-
-
-    const handleSaveUser = (saveUser) => {
-    
-        fetch('http://localhost:5000/saveUsers', {
-          method: "POST",
-          headers: {
-            "content-type":"application/json"
-          },
-          body:JSON.stringify(saveUser)
-        })
-        .then(res=>res.json())
-        .then(data=>{
-        })
-     }
-    return (
-      <div>
-         <NavigationBar/>
-        <div className="container ">
-         
-            <h2 className="text-center my-3 text-success font fw-bold" style={{fontFamily: "Poppins, sans-serif"}}>Login Now</h2>
-            <div className="row">
-            
-                <div className="col-md-6">
-                <div className="text-center">
-                        <img  src="https://images.clipartlogo.com/files/istock/previews/3061/30616146-blue-metallic-login-button.jpg" alt="" />
-                </div>
-                </div>
-                <div className="col-md-6">
-           <div className="bg-light p-5 ">
-                    
-            <div className="ms-5">
-            <form onSubmit={handleSubmit(onSubmit)}>
-            <input className="my-2 w-75 ps-2 border-3 border-info rounded-3 focus-none" {...register("email")} type="email" required  placeholder="email"  />
-            <br/>
-            <input className=" w-75 ps-2 border-3 border-info rounded-3" {...register("password")} required placeholder="password" type="password"  />
-            <br/>
-            <input className="my-2 w-75 bg-danger  text-white border-0 border-info rounded-3" type="submit" />
-            </form>
-            <Button onClick={handleGoolgeLogin}>Google Sign in</Button>
-            <br/>
-            <p>Don't have an account. <Link to="/register">Register</Link></p>
+  const handleSaveUser = (saveUser) => {
+    fetch("http://localhost:5000/saveUsers", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(saveUser),
+    })
+      .then((res) => res.json())
+      .then((data) => {});
+  };
+  return (
+    <div>
+      <div className="container ">
+        <h2
+          className="text-center my-3 text-success font fw-bold"
+          style={{ fontFamily: "Poppins, sans-serif" }}
+        >
+          Login Now
+        </h2>
+        <div className="row">
+          <div className="col-md-6">
+            <div className="text-center">
+              <img
+                src="https://images.clipartlogo.com/files/istock/previews/3061/30616146-blue-metallic-login-button.jpg"
+                alt=""
+              />
             </div>
-           </div>
-                </div>
+          </div>
+          <div className="col-md-6">
+            <div className="bg-light p-5 ">
+              <div className="ms-5">
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <input
+                    className="my-2 w-75 ps-2 border-3 border-info rounded-3 focus-none"
+                    {...register("email")}
+                    type="email"
+                    required
+                    placeholder="email"
+                  />
+                  <br />
+                  <input
+                    className=" w-75 ps-2 border-3 border-info rounded-3"
+                    {...register("password")}
+                    required
+                    placeholder="password"
+                    type="password"
+                  />
+                  <br />
+                  <input
+                    className="my-2 w-75 bg-danger  text-white border-0 border-info rounded-3"
+                    type="submit"
+                  />
+                </form>
+                <Button onClick={handleGoolgeLogin}>Google Sign in</Button>
+                <br />
+                <p>
+                  Don't have an account. <Link to="/register">Register</Link>
+                </p>
+              </div>
             </div>
+          </div>
         </div>
-        </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default Login;

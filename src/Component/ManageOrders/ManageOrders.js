@@ -1,102 +1,109 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 const ManageOrders = () => {
-    const [mngOrder, setMngOrder]=useState([])
-    const  [reload, setReload]=useState(false)
+  const [mngOrder, setMngOrder] = useState([]);
+  const [reload, setReload] = useState(false);
 
-    useEffect(()=>{
-        fetch('http://localhost:5000/manageOrder',)
-        .then(res=>res.json())
-        .then(data=>{
-            setMngOrder(data)
-        })
-    },[reload])
+  useEffect(() => {
+    fetch("http://localhost:5000/manageOrder")
+      .then((res) => res.json())
+      .then((data) => {
+        setMngOrder(data);
+      });
+  }, [reload]);
 
-
-    const handleUpdate = (id)=>{
-        const updateData = {
-            status: "Shipped"
-        }
-        const process = window.confirm("Are You Sure For Update Status?")
-        if(process){
-            fetch(`http://localhost:5000/updateStatus/${id}`, {
-                method: "PUT",
-                headers: {
-                    "content-type": "application/json"
-                },
-                body:JSON.stringify(updateData)
-            })
-            .then(res=>res.json())
-            .then(data=>{
-                setReload(data)
-
-            })
-        }
+  const handleUpdate = (id) => {
+    const updateData = {
+      status: "Shipped",
+    };
+    const process = window.confirm("Are You Sure For Update Status?");
+    if (process) {
+      fetch(`http://localhost:5000/updateStatus/${id}`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updateData),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setReload(data);
+        });
     }
+  };
 
-
-    const handleDelete = (id) =>{
-
-        const process = window.confirm('Are you sure? Click "OK"')
-        if(process){
-            fetch(`http://localhost:5000/manageOrderDelete/${id}`, {
-                method: "DELETE",
-                headers: {
-                    "content-type": "application/json"
-                }
-            })
-            .then(res=>res.json())
-            .then(data=>{
-                setReload(data)
-            })
-        }
+  const handleDelete = (id) => {
+    const process = window.confirm('Are you sure? Click "OK"');
+    if (process) {
+      fetch(`http://localhost:5000/manageOrderDelete/${id}`, {
+        method: "DELETE",
+        headers: {
+          "content-type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setReload(data);
+        });
     }
+  };
 
-
-    return (
-        <div>
-            <h4 className="text-center">MANAGE ORDERS</h4>
-            <div>
-            <table className="table table-hover ">
-        <thead>
+  return (
+    <div>
+      <h4 className="text-center">MANAGE ORDERS</h4>
+      <div>
+        <table className="table table-hover ">
+          <thead>
             <tr>
-            <th scope="col">SL</th>
-            <th scope="col">Name</th>
-            <th scope="col">Product Name</th>
-            <th scope="col">Phone</th>
-            <th scope="col">City/Date</th>
-            <th scope="col">Price</th>
-            <th scope="col">Status</th>
-            <th scope="col">Delete</th>
+              <th scope="col">SL</th>
+              <th scope="col">Name</th>
+              <th scope="col">Product Name</th>
+              <th scope="col">Phone</th>
+              <th scope="col">City/Date</th>
+              <th scope="col">Price</th>
+              <th scope="col">Status</th>
+              <th scope="col">Delete</th>
             </tr>
-        </thead>
-  
+          </thead>
 
-            {
-            mngOrder.map((info,index)  => 
-            
-                <tbody className="my-1" key={info._id}>
-                <tr>
-                <td>{(index+1)}</td>
+          {mngOrder.map((info, index) => (
+            <tbody className="my-1" key={info._id}>
+              <tr>
+                <td>{index + 1}</td>
                 <td>{info?.name}</td>
-                <td>{info?.title.slice(0,15)}</td>
+                <td>{info?.title.slice(0, 15)}</td>
                 <td>{info?.phone}</td>
-                <td>{info?.city}<br/>{info?.currentDate}</td>
+                <td>
+                  {info?.city}
+                  <br />
+                  {info?.currentDate}
+                </td>
                 <td>$ {info?.offerPrice}</td>
 
-                <td><input onClick={()=>handleUpdate(info?._id)} className="bg-success p-2 text-white border-0 rounded " type="button" value={info.status} /></td>
+                <td>
+                  <input
+                    onClick={() => handleUpdate(info?._id)}
+                    className="bg-success p-2 text-white border-0 rounded "
+                    type="button"
+                    value={info.status}
+                  />
+                </td>
 
-                <td><input onClick={()=>handleDelete(info?._id)} className="bg-danger p-2 text-white border-0 rounded " type="button" value="Delete" /></td>
-                </tr> 
+                <td>
+                  <input
+                    onClick={() => handleDelete(info?._id)}
+                    className="bg-danger p-2 text-white border-0 rounded "
+                    type="button"
+                    value="Delete"
+                  />
+                </td>
+              </tr>
             </tbody>
-            )
-            }
-
-            
-            </table>
-            </div>
-        </div>
-    );
+          ))}
+        </table>
+      </div>
+    </div>
+  );
 };
 
 export default ManageOrders;

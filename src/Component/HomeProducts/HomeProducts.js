@@ -7,14 +7,12 @@ import "./HomeProjects.css";
 
 const HomeProducts = () => {
   const [allProducts, setAllProducts] = useState([]);
-  
 
   useEffect(() => {
     fetch("http://localhost:5000/getProducts")
       .then((res) => res.json())
       .then((data) => {
         setAllProducts(data.slice(0, 12));
-       
       });
   }, []);
 
@@ -43,18 +41,22 @@ const HomeProducts = () => {
                 fontFamily: "Poppins, sans-serif",
               }}
             >
-              {!pd.image?
-             <div className="d-flex  justify-content-center my-5 py-3">
-                <div className="spinner-border " role="status">
-             <span className="visually-hidden mx-5 px-5">Loading...</span>
-            </div>
-             </div>:
-            <Card.Img
-                className="zoom mb-3"
-                style={{ width: "100%", height: "150px" }}
-                variant="top"
-                src={pd.image}
-              />}
+              {!pd.image ? (
+                <div className="d-flex  justify-content-center my-5 py-3">
+                  <div className="spinner-border " role="status">
+                    <span className="visually-hidden mx-5 px-5">
+                      Loading...
+                    </span>
+                  </div>
+                </div>
+              ) : (
+                <Card.Img
+                  className="zoom mb-3"
+                  style={{ width: "100%", height: "150px" }}
+                  variant="top"
+                  src={pd.image}
+                />
+              )}
               <Card.Body className="px-2">
                 <Card.Title className="fw-bold">
                   {pd.title.slice(0, 15)}
@@ -67,9 +69,7 @@ const HomeProducts = () => {
                   emptySymbol="far fa-star"
                   fullSymbol="fas fa-star"
                 ></Rating>
-                <Card.Text
-                  className="fw-bold m-0 price"
-                >
+                <Card.Text className="fw-bold m-0 price">
                   Price: $ {pd.offerPrice}
                 </Card.Text>
                 <Card.Text className="">

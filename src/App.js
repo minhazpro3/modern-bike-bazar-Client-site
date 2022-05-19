@@ -24,6 +24,7 @@ import PlaceOrder from './Component/PlaceOrder/PlaceOrder';
 import PrivateRoute from './Component/PrivateRoute/PrivateRoute';
 import Register from './Component/Register/Register';
 import ReviewInput from './Component/ReviewInput/ReviewInput';
+import NavigationBar from './Component/NavigationBar/NavigationBar';
 
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
     <div className="App">
       <AuthProvider>
      <Router>
-       
+     <NavigationBar/>
        <Routes>
        <Route  path="/" element={<Home/>}>
            
@@ -58,6 +59,8 @@ function App() {
          <Route  path="/addProducts" element={  <PrivateRoute><AddProducts/></PrivateRoute>}>
          </Route>
 
+         
+{/* useLate start */}
          <Route  path="/dashboard" element={ <PrivateRoute><Dashboard/></PrivateRoute>}>
          <Route  path="/dashboard/*" element={ <Payment/>}>
            
@@ -97,6 +100,10 @@ function App() {
            <Route  path={`/dashboard/pay/:findId`} element={ <Pay/>}>
           </Route>
          </Route>
+
+
+{/* useLate end */}
+
 
          <Route  path="/review" element={<PrivateRoute> <ReviewInput/></PrivateRoute>}>
          </Route>

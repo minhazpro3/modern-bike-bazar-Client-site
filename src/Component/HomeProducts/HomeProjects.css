@@ -1,38 +1,35 @@
-
-
 .zoom {
-    max-width: 100%;
-    height:auto;
-    
-    -moz-transition: all 1s;
-    -webkit-transition: all 1s;
-    transition: all 1s;
-  }
+  max-width: 100%;
+  height: auto;
 
-
-  .zoomDiv:hover img {
-    -moz-transform: scale(1.3);
-    -webkit-transform: scale(1.3);
-    transform: scale(1.3);
-    
-    height: 420px;
+  -moz-transition: all 1s;
+  -webkit-transition: all 1s;
+  transition: all 1s;
 }
 
-.zoomDiv{
-    position: relative;
-    overflow: hidden;
+.zoomDiv:hover img {
+  -moz-transform: scale(1.3);
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
+
+  height: 420px;
+}
+
+.zoomDiv {
+  position: relative;
+  overflow: hidden;
 }
 
 .zoomDiv:hover {
-      background-color: rgb(67, 112, 138);
-      color: white;
-      transition: all 1s;
-  }
+  background-color: rgb(67, 112, 138);
+  color: white;
+  transition: all 1s;
+}
 
-.price{
-    color: chocolate;
+.price {
+  color: chocolate;
 }
 
 .zoomDiv:hover .price {
-      color: white;
-  }
+  color: white;
+}

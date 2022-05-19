@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import useAuth from "../Hooks/useAuth";
 import PaymentCart from "./PaymentCart";
 
-
 const Payment = () => {
   const [payData, setPayData] = useState([]);
   console.log(payData);
@@ -28,9 +27,9 @@ const Payment = () => {
             <th scope="col">Pay</th>
           </tr>
         </thead>
-        {
-            payData.map((data,index)=> <PaymentCart key={data._id} {...data} index={index}  />)
-        }
+        {payData.map((data, index) => (
+          <PaymentCart key={data._id} {...data} index={index} />
+        ))}
       </table>
     </div>
   );
