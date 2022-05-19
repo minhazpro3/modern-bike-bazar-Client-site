@@ -99,14 +99,14 @@ const Register = () => {
               <form onSubmit={handleSubmit(onSubmit)}>
                 <input
                   placeholder="name"
-                  className=" w-50"
+                  className=" w-50 my-2 px-2 py-1 rounded-2 shadow-lg border-0  rounded"
                   {...register("name")}
                   type="text"
                   required
                 />
                 <br />
                 <input
-                  className="my-2 w-50"
+                  className="  w-50 my-2 px-2 py-1 rounded-2 shadow-lg border-0  rounded"
                   {...register("email")}
                   placeholder="email"
                   type="email"
@@ -114,7 +114,7 @@ const Register = () => {
                 />
                 <br />
                 <input
-                  className=" w-50"
+                  className=" w-50 my-2 px-2 py-1 rounded-2 shadow-lg border-0  rounded"
                   {...register("password")}
                   placeholder="password"
                   type="password"
@@ -122,14 +122,14 @@ const Register = () => {
                 />
                 <br />
                 <input
-                  className="mt-2 w-50"
+                  className="  w-50 my-2 px-2 py-1 rounded-2 shadow-lg border-0  rounded"
                   {...register("password2")}
                   placeholder="Confirm password"
                   type="password"
                   required
                 />
                 <br />
-                <input className="my-2 w-50" type="submit" />
+                <input className="my-2 w-50 text-white bg-primary border-0 rounded py-1" type="submit" />
               </form>
               <Button onClick={handleGoolgeLogin}>Google Sign in</Button>
             </div>

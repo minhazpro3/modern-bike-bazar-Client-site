@@ -84,7 +84,7 @@ const Login = () => {
               <div className="ms-5">
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <input
-                    className="my-2 w-75 px-2 rounded-2 shadow-lg border-0  rounded"
+                    className="my-2 w-75 py-1 px-2 rounded-2 shadow-lg border-0  rounded"
                     {...register("email")}
                     type="email"
                     required
@@ -92,7 +92,7 @@ const Login = () => {
                   />
                   <br />
                   <input
-                    className="my-2 w-75 px-2 rounded-2 shadow-lg border-0  rounded"
+                    className="my-2 w-75 py-1 px-2 rounded-2 shadow-lg border-0  rounded"
                     {...register("password")}
                     required
                     placeholder="Password"
