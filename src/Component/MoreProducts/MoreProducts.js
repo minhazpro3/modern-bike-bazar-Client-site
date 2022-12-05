@@ -57,10 +57,8 @@ const MoreProducts = () => {
                   />
                 )}
                 <Card.Body className="px-2">
-                  <Card.Title className="fw-bold">
-                    {pd.title.slice(0, 15)}
-                  </Card.Title>
-                  <Card.Text>{pd.description.slice(0, 50)}</Card.Text>
+                  <Card.Title className="fw-bold">{pd.title}</Card.Title>
+                  <Card.Text>{pd.description}</Card.Text>
                   <Rating
                     className="text-warning"
                     initialRating="5"
