@@ -10,7 +10,9 @@ const MyOrders = () => {
   const [admin, setAdmin] = useState("");
 
   useEffect(() => {
-    fetch(`https://rocky-river-82616.herokuapp.com/myOrder/${user?.email}`)
+    fetch(
+      `https://modern-bike-bazar-server-site-production.up.railway.app/myOrder/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setMyData(data);
@@ -18,7 +20,9 @@ const MyOrders = () => {
   }, [user?.email]);
 
   useEffect(() => {
-    fetch(`https://rocky-river-82616.herokuapp.com/checkedAdmin/${user?.email}`)
+    fetch(
+      `https://modern-bike-bazar-server-site-production.up.railway.app/checkedAdmin/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data[0].role === "admin") {
@@ -39,12 +43,15 @@ const MyOrders = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
-        fetch(`https://rocky-river-82616.herokuapp.com/deleteOrder/${id}`, {
-          method: "DELETE",
-          headers: {
-            "content-type": "application/json",
-          },
-        })
+        fetch(
+          `https://modern-bike-bazar-server-site-production.up.railway.app/deleteOrder/${id}`,
+          {
+            method: "DELETE",
+            headers: {
+              "content-type": "application/json",
+            },
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             setMyData(myData.filter((data) => data._id !== id));

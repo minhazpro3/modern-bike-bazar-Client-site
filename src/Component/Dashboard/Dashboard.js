@@ -14,7 +14,9 @@ const Dashboard = () => {
   const { user, logOut } = useAuth();
 
   useEffect(() => {
-    fetch(`https://rocky-river-82616.herokuapp.com/checkedAdmin/${user?.email}`)
+    fetch(
+      `https://modern-bike-bazar-server-site-production.up.railway.app/checkedAdmin/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data[0].role === "admin") {

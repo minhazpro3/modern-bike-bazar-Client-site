@@ -9,7 +9,9 @@ const HomeProducts = () => {
   const [allProducts, setAllProducts] = useState([]);
 
   useEffect(() => {
-    fetch("https://rocky-river-82616.herokuapp.com/getProducts")
+    fetch(
+      "https://modern-bike-bazar-server-site-production.up.railway.app/getProducts"
+    )
       .then((res) => res.json())
       .then((data) => {
         setAllProducts(data.slice(0, 12));

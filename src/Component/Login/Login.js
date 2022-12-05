@@ -51,13 +51,16 @@ const Login = () => {
   };
 
   const handleSaveUser = (saveUser) => {
-    fetch("https://rocky-river-82616.herokuapp.com/saveUsers", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(saveUser),
-    })
+    fetch(
+      "https://modern-bike-bazar-server-site-production.up.railway.app/saveUsers",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(saveUser),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {});
   };

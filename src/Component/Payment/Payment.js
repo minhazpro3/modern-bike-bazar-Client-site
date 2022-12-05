@@ -8,7 +8,9 @@ const Payment = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    fetch(`https://rocky-river-82616.herokuapp.com/myOrder/${user?.email}`)
+    fetch(
+      `https://modern-bike-bazar-server-site-production.up.railway.app/myOrder/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setPayData(data);

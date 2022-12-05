@@ -53,13 +53,16 @@ const Register = () => {
   };
 
   const handleSaveUser = (saveUser) => {
-    fetch("https://rocky-river-82616.herokuapp.com/saveUsers", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(saveUser),
-    })
+    fetch(
+      "https://modern-bike-bazar-server-site-production.up.railway.app/saveUsers",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(saveUser),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {});
   };
@@ -129,7 +132,10 @@ const Register = () => {
                   required
                 />
                 <br />
-                <input className="my-2 w-50 text-white bg-primary border-0 rounded py-1" type="submit" />
+                <input
+                  className="my-2 w-50 text-white bg-primary border-0 rounded py-1"
+                  type="submit"
+                />
               </form>
               <Button onClick={handleGoolgeLogin}>Google Sign in</Button>
             </div>

@@ -5,7 +5,9 @@ const ManageOrders = () => {
   const [reload, setReload] = useState(false);
 
   useEffect(() => {
-    fetch("https://rocky-river-82616.herokuapp.com/manageOrder")
+    fetch(
+      "https://modern-bike-bazar-server-site-production.up.railway.app/manageOrder"
+    )
       .then((res) => res.json())
       .then((data) => {
         setMngOrder(data);
@@ -18,13 +20,16 @@ const ManageOrders = () => {
     };
     const process = window.confirm("Are You Sure For Update Status?");
     if (process) {
-      fetch(`https://rocky-river-82616.herokuapp.com/updateStatus/${id}`, {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(updateData),
-      })
+      fetch(
+        `https://modern-bike-bazar-server-site-production.up.railway.app/updateStatus/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(updateData),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           setReload(data);
@@ -35,12 +40,15 @@ const ManageOrders = () => {
   const handleDelete = (id) => {
     const process = window.confirm('Are you sure? Click "OK"');
     if (process) {
-      fetch(`https://rocky-river-82616.herokuapp.com/manageOrderDelete/${id}`, {
-        method: "DELETE",
-        headers: {
-          "content-type": "application/json",
-        },
-      })
+      fetch(
+        `https://modern-bike-bazar-server-site-production.up.railway.app/manageOrderDelete/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "content-type": "application/json",
+          },
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           setReload(data);

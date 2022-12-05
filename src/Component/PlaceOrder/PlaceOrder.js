@@ -31,13 +31,16 @@ const PlaceOrder = () => {
       currentDate: new Date().toLocaleString(),
     };
 
-    fetch("https://rocky-river-82616.herokuapp.com/allOrders", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(information),
-    })
+    fetch(
+      "https://modern-bike-bazar-server-site-production.up.railway.app/allOrders",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(information),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         warning(true);
@@ -59,7 +62,9 @@ const PlaceOrder = () => {
   };
 
   useEffect(() => {
-    fetch(`https://rocky-river-82616.herokuapp.com/singleProducts/${orderId}`)
+    fetch(
+      `https://modern-bike-bazar-server-site-production.up.railway.app/singleProducts/${orderId}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setSingleProducts(data);

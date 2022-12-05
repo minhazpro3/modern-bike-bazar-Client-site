@@ -10,13 +10,16 @@ const ReviewInput = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     data.photo = user?.photoURL;
-    fetch("https://rocky-river-82616.herokuapp.com/allReview", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
+    fetch(
+      "https://modern-bike-bazar-server-site-production.up.railway.app/allReview",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         warning(true);

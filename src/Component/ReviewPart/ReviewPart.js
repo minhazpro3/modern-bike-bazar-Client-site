@@ -34,7 +34,9 @@ const ReviewPart = () => {
   };
 
   useEffect(() => {
-    fetch("https://rocky-river-82616.herokuapp.com/reviewGet")
+    fetch(
+      "https://modern-bike-bazar-server-site-production.up.railway.app/reviewGet"
+    )
       .then((res) => res.json())
       .then((data) => {
         setReviewData(data);

@@ -6,7 +6,9 @@ const ManageProducts = () => {
   //  const [fresh, setFresh] = useState(true)
 
   useEffect(() => {
-    fetch("https://rocky-river-82616.herokuapp.com/manageProducts")
+    fetch(
+      "https://modern-bike-bazar-server-site-production.up.railway.app/manageProducts"
+    )
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -25,12 +27,15 @@ const ManageProducts = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
-        fetch(`https://rocky-river-82616.herokuapp.com/manProduct/${id}`, {
-          method: "DELETE",
-          headers: {
-            "content-type": "application/json",
-          },
-        })
+        fetch(
+          `https://modern-bike-bazar-server-site-production.up.railway.app/manProduct/${id}`,
+          {
+            method: "DELETE",
+            headers: {
+              "content-type": "application/json",
+            },
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             setProducts(products.filter((item) => item._id !== id));

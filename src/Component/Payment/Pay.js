@@ -22,12 +22,15 @@ const Pay = () => {
   };
 
   const status = (id) => {
-    fetch(`https://rocky-river-82616.herokuapp.com/paymentStatus/${id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-    })
+    fetch(
+      `https://modern-bike-bazar-server-site-production.up.railway.app/paymentStatus/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data) {
@@ -37,7 +40,9 @@ const Pay = () => {
   };
 
   useEffect(() => {
-    fetch(`https://rocky-river-82616.herokuapp.com/getPay/${findId}`)
+    fetch(
+      `https://modern-bike-bazar-server-site-production.up.railway.app/getPay/${findId}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);

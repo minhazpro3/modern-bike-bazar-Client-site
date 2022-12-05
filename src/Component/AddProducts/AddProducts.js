@@ -17,7 +17,7 @@ const AddProducts = () => {
       image: imgUrl,
     };
 
-    const url = `https://rocky-river-82616.herokuapp.com/addBike`;
+    const url = `https://modern-bike-bazar-server-site-production.up.railway.app/addBike`;
     fetch(url, {
       method: "POST",
       headers: {
