@@ -11,7 +11,7 @@ const HomeProducts = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("https://modern-bike-bazar-server-site.vercel.app/getProducts")
+    fetch("https://bike-bazar.onrender.com/getProducts")
       .then((res) => res.json())
       .then((data) => {
         setAllProducts(data.slice(0, 12));

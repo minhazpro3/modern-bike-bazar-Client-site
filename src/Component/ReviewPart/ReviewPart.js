@@ -34,7 +34,7 @@ const ReviewPart = () => {
   };
 
   useEffect(() => {
-    fetch("https://modern-bike-bazar-server-site.vercel.app/reviewGet")
+    fetch("https://bike-bazar.onrender.com/reviewGet")
       .then((res) => res.json())
       .then((data) => {
         setReviewData(data);

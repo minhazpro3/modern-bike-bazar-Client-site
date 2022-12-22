@@ -5,7 +5,7 @@ const ManageOrders = () => {
   const [reload, setReload] = useState(false);
 
   useEffect(() => {
-    fetch("https://modern-bike-bazar-server-site.vercel.app/manageOrder")
+    fetch("https://bike-bazar.onrender.com/manageOrder")
       .then((res) => res.json())
       .then((data) => {
         setMngOrder(data);
@@ -18,16 +18,13 @@ const ManageOrders = () => {
     };
     const process = window.confirm("Are You Sure For Update Status?");
     if (process) {
-      fetch(
-        `https://modern-bike-bazar-server-site.vercel.app/updateStatus/${id}`,
-        {
-          method: "PUT",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(updateData),
-        }
-      )
+      fetch(`https://bike-bazar.onrender.com/updateStatus/${id}`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updateData),
+      })
         .then((res) => res.json())
         .then((data) => {
           setReload(data);
@@ -38,15 +35,12 @@ const ManageOrders = () => {
   const handleDelete = (id) => {
     const process = window.confirm('Are you sure? Click "OK"');
     if (process) {
-      fetch(
-        `https://modern-bike-bazar-server-site.vercel.app/manageOrderDelete/${id}`,
-        {
-          method: "DELETE",
-          headers: {
-            "content-type": "application/json",
-          },
-        }
-      )
+      fetch(`https://bike-bazar.onrender.com/manageOrderDelete/${id}`, {
+        method: "DELETE",
+        headers: {
+          "content-type": "application/json",
+        },
+      })
         .then((res) => res.json())
         .then((data) => {
           setReload(data);

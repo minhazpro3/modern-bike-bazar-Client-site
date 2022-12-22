@@ -22,15 +22,12 @@ const Pay = () => {
   };
 
   const status = (id) => {
-    fetch(
-      `https://modern-bike-bazar-server-site.vercel.app/paymentStatus/${id}`,
-      {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-      }
-    )
+    fetch(`https://bike-bazar.onrender.com/paymentStatus/${id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data) {
@@ -40,7 +37,7 @@ const Pay = () => {
   };
 
   useEffect(() => {
-    fetch(`https://modern-bike-bazar-server-site.vercel.app/getPay/${findId}`)
+    fetch(`https://bike-bazar.onrender.com/getPay/${findId}`)
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);

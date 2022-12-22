@@ -11,7 +11,7 @@ const MoreProducts = () => {
   const { reload } = useAuth();
   const [loadding, setLoadding] = useState(true);
   useEffect(() => {
-    fetch("https://modern-bike-bazar-server-site.vercel.app/getProducts")
+    fetch("https://bike-bazar.onrender.com/getProducts")
       .then((res) => res.json())
       .then((data) => {
         setAllProducts(data);

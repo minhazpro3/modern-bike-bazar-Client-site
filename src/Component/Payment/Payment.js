@@ -8,9 +8,7 @@ const Payment = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    fetch(
-      `https://modern-bike-bazar-server-site.vercel.app/myOrder/${user?.email}`
-    )
+    fetch(`https://bike-bazar.onrender.com/myOrder/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setPayData(data);

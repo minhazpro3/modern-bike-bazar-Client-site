@@ -31,7 +31,7 @@ const PlaceOrder = () => {
       currentDate: new Date().toLocaleString(),
     };
 
-    fetch("https://modern-bike-bazar-server-site.vercel.app/allOrders", {
+    fetch("https://bike-bazar.onrender.com/allOrders", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -59,9 +59,7 @@ const PlaceOrder = () => {
   };
 
   useEffect(() => {
-    fetch(
-      `https://modern-bike-bazar-server-site.vercel.app/singleProducts/${orderId}`
-    )
+    fetch(`https://bike-bazar.onrender.com/singleProducts/${orderId}`)
       .then((res) => res.json())
       .then((data) => {
         setSingleProducts(data);

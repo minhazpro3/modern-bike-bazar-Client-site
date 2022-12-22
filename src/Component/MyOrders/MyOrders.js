@@ -10,9 +10,7 @@ const MyOrders = () => {
   const [admin, setAdmin] = useState("");
 
   useEffect(() => {
-    fetch(
-      `https://modern-bike-bazar-server-site.vercel.app/myOrder/${user?.email}`
-    )
+    fetch(`https://bike-bazar.onrender.com/myOrder/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setMyData(data);
@@ -20,9 +18,7 @@ const MyOrders = () => {
   }, [user?.email]);
 
   useEffect(() => {
-    fetch(
-      `https://modern-bike-bazar-server-site.vercel.app/checkedAdmin/${user?.email}`
-    )
+    fetch(`https://bike-bazar.onrender.com/checkedAdmin/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         if (data[0].role === "admin") {
@@ -43,15 +39,12 @@ const MyOrders = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
-        fetch(
-          `https://modern-bike-bazar-server-site.vercel.app/deleteOrder/${id}`,
-          {
-            method: "DELETE",
-            headers: {
-              "content-type": "application/json",
-            },
-          }
-        )
+        fetch(`https://bike-bazar.onrender.com/deleteOrder/${id}`, {
+          method: "DELETE",
+          headers: {
+            "content-type": "application/json",
+          },
+        })
           .then((res) => res.json())
           .then((data) => {
             setMyData(myData.filter((data) => data._id !== id));

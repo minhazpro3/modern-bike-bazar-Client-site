@@ -14,9 +14,7 @@ const Dashboard = () => {
   const { user, logOut } = useAuth();
 
   useEffect(() => {
-    fetch(
-      `https://modern-bike-bazar-server-site.vercel.app/checkedAdmin/${user?.email}`
-    )
+    fetch(`https://bike-bazar.onrender.com/checkedAdmin/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         if (data[0].role === "admin") {
