@@ -9,7 +9,7 @@ const Payment = () => {
 
   useEffect(() => {
     fetch(
-      `https://modern-bike-bazar-server-site-production.up.railway.app/myOrder/${user?.email}`
+      `https://modern-bike-bazar-server-site.vercel.app/myOrder/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => {

@@ -17,7 +17,7 @@ const AddProducts = () => {
       image: imgUrl,
     };
 
-    const url = `https://modern-bike-bazar-server-site-production.up.railway.app/addBike`;
+    const url = `https://modern-bike-bazar-server-site.vercel.app/addBike`;
     fetch(url, {
       method: "POST",
       headers: {

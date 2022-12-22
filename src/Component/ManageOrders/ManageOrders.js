@@ -5,9 +5,7 @@ const ManageOrders = () => {
   const [reload, setReload] = useState(false);
 
   useEffect(() => {
-    fetch(
-      "https://modern-bike-bazar-server-site-production.up.railway.app/manageOrder"
-    )
+    fetch("https://modern-bike-bazar-server-site.vercel.app/manageOrder")
       .then((res) => res.json())
       .then((data) => {
         setMngOrder(data);
@@ -21,7 +19,7 @@ const ManageOrders = () => {
     const process = window.confirm("Are You Sure For Update Status?");
     if (process) {
       fetch(
-        `https://modern-bike-bazar-server-site-production.up.railway.app/updateStatus/${id}`,
+        `https://modern-bike-bazar-server-site.vercel.app/updateStatus/${id}`,
         {
           method: "PUT",
           headers: {
@@ -41,7 +39,7 @@ const ManageOrders = () => {
     const process = window.confirm('Are you sure? Click "OK"');
     if (process) {
       fetch(
-        `https://modern-bike-bazar-server-site-production.up.railway.app/manageOrderDelete/${id}`,
+        `https://modern-bike-bazar-server-site.vercel.app/manageOrderDelete/${id}`,
         {
           method: "DELETE",
           headers: {

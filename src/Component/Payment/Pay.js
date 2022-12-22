@@ -23,7 +23,7 @@ const Pay = () => {
 
   const status = (id) => {
     fetch(
-      `https://modern-bike-bazar-server-site-production.up.railway.app/paymentStatus/${id}`,
+      `https://modern-bike-bazar-server-site.vercel.app/paymentStatus/${id}`,
       {
         method: "PUT",
         headers: {
@@ -40,9 +40,7 @@ const Pay = () => {
   };
 
   useEffect(() => {
-    fetch(
-      `https://modern-bike-bazar-server-site-production.up.railway.app/getPay/${findId}`
-    )
+    fetch(`https://modern-bike-bazar-server-site.vercel.app/getPay/${findId}`)
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);

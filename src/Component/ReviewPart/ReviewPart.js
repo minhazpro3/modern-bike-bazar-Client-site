@@ -34,9 +34,7 @@ const ReviewPart = () => {
   };
 
   useEffect(() => {
-    fetch(
-      "https://modern-bike-bazar-server-site-production.up.railway.app/reviewGet"
-    )
+    fetch("https://modern-bike-bazar-server-site.vercel.app/reviewGet")
       .then((res) => res.json())
       .then((data) => {
         setReviewData(data);

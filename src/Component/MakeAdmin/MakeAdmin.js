@@ -5,16 +5,13 @@ import Swal from "sweetalert2";
 const MakeAdmin = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    fetch(
-      "https://modern-bike-bazar-server-site-production.up.railway.app/madeAdmin",
-      {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(data),
-      }
-    )
+    fetch("https://modern-bike-bazar-server-site.vercel.app/madeAdmin", {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
       .then((res) => res.json())
       .then((data) => {
         warning(true);

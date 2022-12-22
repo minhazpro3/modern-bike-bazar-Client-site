@@ -11,7 +11,7 @@ const MyOrders = () => {
 
   useEffect(() => {
     fetch(
-      `https://modern-bike-bazar-server-site-production.up.railway.app/myOrder/${user?.email}`
+      `https://modern-bike-bazar-server-site.vercel.app/myOrder/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -21,7 +21,7 @@ const MyOrders = () => {
 
   useEffect(() => {
     fetch(
-      `https://modern-bike-bazar-server-site-production.up.railway.app/checkedAdmin/${user?.email}`
+      `https://modern-bike-bazar-server-site.vercel.app/checkedAdmin/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -44,7 +44,7 @@ const MyOrders = () => {
       if (result.isConfirmed) {
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
         fetch(
-          `https://modern-bike-bazar-server-site-production.up.railway.app/deleteOrder/${id}`,
+          `https://modern-bike-bazar-server-site.vercel.app/deleteOrder/${id}`,
           {
             method: "DELETE",
             headers: {

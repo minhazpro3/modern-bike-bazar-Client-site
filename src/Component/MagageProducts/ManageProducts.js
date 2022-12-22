@@ -6,9 +6,7 @@ const ManageProducts = () => {
   //  const [fresh, setFresh] = useState(true)
 
   useEffect(() => {
-    fetch(
-      "https://modern-bike-bazar-server-site-production.up.railway.app/manageProducts"
-    )
+    fetch("https://modern-bike-bazar-server-site.vercel.app/manageProducts")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -28,7 +26,7 @@ const ManageProducts = () => {
       if (result.isConfirmed) {
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
         fetch(
-          `https://modern-bike-bazar-server-site-production.up.railway.app/manProduct/${id}`,
+          `https://modern-bike-bazar-server-site.vercel.app/manProduct/${id}`,
           {
             method: "DELETE",
             headers: {

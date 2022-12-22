@@ -15,7 +15,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     fetch(
-      `https://modern-bike-bazar-server-site-production.up.railway.app/checkedAdmin/${user?.email}`
+      `https://modern-bike-bazar-server-site.vercel.app/checkedAdmin/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => {
