@@ -11,7 +11,7 @@ const MoreProducts = () => {
   const { reload } = useAuth();
   const [loadding, setLoadding] = useState(true);
   useEffect(() => {
-    fetch("https://bike-bazar.onrender.com/getProducts")
+    fetch("https://bike-bazar-3w13.onrender.com/getProducts")
       .then((res) => res.json())
       .then((data) => {
         setAllProducts(data);

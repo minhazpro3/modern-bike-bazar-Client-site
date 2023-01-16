@@ -22,7 +22,7 @@ const Pay = () => {
   };
 
   const status = (id) => {
-    fetch(`https://bike-bazar.onrender.com/paymentStatus/${id}`, {
+    fetch(`https://bike-bazar-3w13.onrender.com/paymentStatus/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -37,7 +37,7 @@ const Pay = () => {
   };
 
   useEffect(() => {
-    fetch(`https://bike-bazar.onrender.com/getPay/${findId}`)
+    fetch(`https://bike-bazar-3w13.onrender.com/getPay/${findId}`)
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);

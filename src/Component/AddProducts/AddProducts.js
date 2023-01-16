@@ -17,7 +17,7 @@ const AddProducts = () => {
       image: imgUrl,
     };
 
-    const url = `https://bike-bazar.onrender.com/addBike`;
+    const url = `https://bike-bazar-3w13.onrender.com/addBike`;
     fetch(url, {
       method: "POST",
       headers: {

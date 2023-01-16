@@ -8,7 +8,7 @@ const Payment = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    fetch(`https://bike-bazar.onrender.com/myOrder/${user?.email}`)
+    fetch(`https://bike-bazar-3w13.onrender.com/myOrder/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setPayData(data);

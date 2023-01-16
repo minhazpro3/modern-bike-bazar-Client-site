@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 const MakeAdmin = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    fetch("https://bike-bazar.onrender.com/madeAdmin", {
+    fetch("https://bike-bazar-3w13.onrender.com/madeAdmin", {
       method: "PUT",
       headers: {
         "content-type": "application/json",

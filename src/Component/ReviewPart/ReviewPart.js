@@ -34,7 +34,7 @@ const ReviewPart = () => {
   };
 
   useEffect(() => {
-    fetch("https://bike-bazar.onrender.com/reviewGet")
+    fetch("https://bike-bazar-3w13.onrender.com/reviewGet")
       .then((res) => res.json())
       .then((data) => {
         setReviewData(data);

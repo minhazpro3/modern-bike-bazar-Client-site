@@ -10,7 +10,7 @@ const ReviewInput = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     data.photo = user?.photoURL;
-    fetch("https://bike-bazar.onrender.com/allReview", {
+    fetch("https://bike-bazar-3w13.onrender.com/allReview", {
       method: "POST",
       headers: {
         "content-type": "application/json",

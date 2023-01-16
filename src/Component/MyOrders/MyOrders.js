@@ -10,7 +10,7 @@ const MyOrders = () => {
   const [admin, setAdmin] = useState("");
 
   useEffect(() => {
-    fetch(`https://bike-bazar.onrender.com/myOrder/${user?.email}`)
+    fetch(`https://bike-bazar-3w13.onrender.com/myOrder/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setMyData(data);
@@ -18,7 +18,7 @@ const MyOrders = () => {
   }, [user?.email]);
 
   useEffect(() => {
-    fetch(`https://bike-bazar.onrender.com/checkedAdmin/${user?.email}`)
+    fetch(`https://bike-bazar-3w13.onrender.com/checkedAdmin/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         if (data[0].role === "admin") {
@@ -39,7 +39,7 @@ const MyOrders = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
-        fetch(`https://bike-bazar.onrender.com/deleteOrder/${id}`, {
+        fetch(`https://bike-bazar-3w13.onrender.com/deleteOrder/${id}`, {
           method: "DELETE",
           headers: {
             "content-type": "application/json",

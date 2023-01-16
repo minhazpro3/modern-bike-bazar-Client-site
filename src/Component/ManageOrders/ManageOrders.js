@@ -5,7 +5,7 @@ const ManageOrders = () => {
   const [reload, setReload] = useState(false);
 
   useEffect(() => {
-    fetch("https://bike-bazar.onrender.com/manageOrder")
+    fetch("https://bike-bazar-3w13.onrender.com/manageOrder")
       .then((res) => res.json())
       .then((data) => {
         setMngOrder(data);
@@ -18,7 +18,7 @@ const ManageOrders = () => {
     };
     const process = window.confirm("Are You Sure For Update Status?");
     if (process) {
-      fetch(`https://bike-bazar.onrender.com/updateStatus/${id}`, {
+      fetch(`https://bike-bazar-3w13.onrender.com/updateStatus/${id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
@@ -35,7 +35,7 @@ const ManageOrders = () => {
   const handleDelete = (id) => {
     const process = window.confirm('Are you sure? Click "OK"');
     if (process) {
-      fetch(`https://bike-bazar.onrender.com/manageOrderDelete/${id}`, {
+      fetch(`https://bike-bazar-3w13.onrender.com/manageOrderDelete/${id}`, {
         method: "DELETE",
         headers: {
           "content-type": "application/json",

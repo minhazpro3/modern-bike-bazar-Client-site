@@ -6,7 +6,7 @@ const ManageProducts = () => {
   //  const [fresh, setFresh] = useState(true)
 
   useEffect(() => {
-    fetch("https://bike-bazar.onrender.com/manageProducts")
+    fetch("https://bike-bazar-3w13.onrender.com/manageProducts")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -25,7 +25,7 @@ const ManageProducts = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
-        fetch(`https://bike-bazar.onrender.com/manProduct/${id}`, {
+        fetch(`https://bike-bazar-3w13.onrender.com/manProduct/${id}`, {
           method: "DELETE",
           headers: {
             "content-type": "application/json",
